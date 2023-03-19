@@ -1,0 +1,32 @@
+﻿<Page x:Class="Code_Inspector.Page_Inspecionar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Code_Inspector"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page_Inspecionar">
+
+    <Viewbox Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+
+        <Grid>
+            <Label Content="Seleção de arquivo ————————————————————————————————————————" HorizontalAlignment="Left" Margin="21,25,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <TextBox x:Name="Txt_Local_Arquivo" HorizontalAlignment="Left" Margin="58,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" Height="18" FontSize="9"/>
+            <Label Content="Local do arquivo" HorizontalAlignment="Left" Margin="52,76,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Button Content="Selecionar" HorizontalAlignment="Left" Margin="419,100,0,0" VerticalAlignment="Top" Width="65" Click="Selecionar_Arquivo"/>
+            <ComboBox x:Name="SelecaoTipoRelease" HorizontalAlignment="Left" Margin="58,166,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="Item_selecionado">
+                <ComboBoxItem >Automation Anywhere</ComboBoxItem>
+                <ComboBoxItem >Blue Prism</ComboBoxItem>
+                <ComboBoxItem >UI Path</ComboBoxItem>
+            </ComboBox>
+            <Label Content="Selecione o tipo de release" HorizontalAlignment="Left" Margin="52,137,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Estado —————————————————————————————————————————————" HorizontalAlignment="Left" Margin="21,150,0,0" VerticalAlignment="Center" Foreground="White"/>
+            <Rectangle x:Name="rectangle_status" HorizontalAlignment="Left" Height="25" Margin="26,272,0,0" Stroke="White" VerticalAlignment="Top" Width="580"/>
+
+            <Button x:Name="Iniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="545,320,0,0" VerticalAlignment="Top" Width="65" Click="Iniciar_Conferencia"/>
+            <Label x:Name="StatusLabel" Content="" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Foreground="White"/>
+        </Grid>
+
+    </Viewbox>
+</Page>

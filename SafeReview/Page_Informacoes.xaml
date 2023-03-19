@@ -1,0 +1,38 @@
+﻿<Page x:Class="Code_Inspector.Page_Informacoes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Code_Inspector"
+      mc:Ignorable="d" 
+      Title="Page_Informacoes">
+
+
+        <TextBlock x:Name="informacoes_projeto" Foreground="White" TextWrapping="WrapWithOverflow" FontSize="16" MouseLeftButtonDown="AjusteImagem">
+                        Existem várias razões pelas quais é importante adotar boas práticas para construção de objetos e processos. Algumas dessas razões incluem:
+      <LineBreak/> 
+            <LineBreak/>
+            1. Melhor eficiência: A adoção de boas práticas pode ajudar a melhorar a eficiência dos processos que estão sendo automatizados.Isso significa que eles podem ser executados mais rapidamente e com menos erros.
+     <LineBreak/>
+            <LineBreak/>
+           2. Maior precisão: Quando as boas práticas são seguidas, é mais provável que os processos sejam executados com maior precisão e consistência. Isso pode levar a resultados mais confiáveis e precisos.
+         <LineBreak/> 
+            <LineBreak/>
+        3. Menos manutenção: Se os objetos e processos forem construídos com boas práticas em mente, eles podem exigir menos manutenção e correção de erros. Isso pode economizar tempo e dinheiro a longo prazo.
+       <LineBreak/> 
+            <LineBreak/>
+          4. Facilidade de manutenção: Quando os objetos e processos são construídos de acordo com as boas práticas, eles podem ser mais fáceis de manter e atualizar. 
+            Isso é importante para garantir que os processos automatizados continuem a funcionar corretamente à medida que as necessidades do negócio mudam.            
+<LineBreak/>
+            <LineBreak/>
+       5. Conformidade regulatória: Algumas boas práticas são necessárias para garantir a conformidade regulatória. Isso é particularmente importante em setores altamente regulamentados, como finanças e saúde.
+       <LineBreak/>
+            <LineBreak/>
+            6. Maior reutilização: Quando os objetos e processos são construídos com boas práticas em mente, eles podem ser mais fáceis de reutilizar em outros projetos. Isso pode economizar tempo e esforço no desenvolvimento de novos processos.
+<LineBreak/>
+            <LineBreak/>
+            Em resumo, adotar boas práticas para construção de objetos e processos pode deixa-lo mais eficientes, precisos, fáceis de manter e compatíveis com regulamentações. Isso pode resultar em economia de tempo e dinheiro e maior reutilização.
+
+        </TextBlock>
+
+</Page>
