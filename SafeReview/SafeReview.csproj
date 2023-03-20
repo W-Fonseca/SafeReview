@@ -20,6 +20,7 @@
     <None Remove="icons8-macbook-idea-100.png" />
     <None Remove="icons8-vamos-para-100.png" />
     <None Remove="Logo.png" />
+    <None Remove="SafeReview_96_pixel.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +46,7 @@
     <Resource Include="Assets\icons8-macbook-chat-100.png" />
     <Resource Include="Assets\icons8-macbook-idea-100.png" />
     <Resource Include="Assets\icons8-vamos-para-100.png" />
+    <Resource Include="Assets\SafeReview_96_pixel.png" />
   </ItemGroup>
 
 </Project>

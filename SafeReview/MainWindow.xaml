@@ -11,7 +11,9 @@
         ResizeMode="CanResizeWithGrip"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        MouseLeftButtonDown="Click_Mover_Janela">
+        MouseLeftButtonDown="Click_Mover_Janela"
+        Icon="/Assets/SafeReview_96_pixel.png"
+        >
     <Grid>
         <Border x:Name="Borda"
                 Background="#282D33" 
