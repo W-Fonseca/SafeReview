@@ -1,7 +1,10 @@
 ﻿using Microsoft.Win32;
+using SafeReview;
+using SafeReview.Objetos_Blue_Prism;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +26,8 @@ namespace Code_Inspector
     {
 
         string arquivo_raiz;
+        public object excel2;
+
         public Page_Inspecionar()
         {
             InitializeComponent();
@@ -90,18 +95,37 @@ namespace Code_Inspector
             
         }
 
-        private void Iniciar_Conferencia(object sender, RoutedEventArgs e)
+        private async void Iniciar_Conferencia(object sender, RoutedEventArgs e)
         {
-            try { 
-            SafeReview.Objetos_Blue_Prism.Leitura_blue_prism_process.Leitor_Release(arquivo_raiz);
+            rectangle_status.Fill = null;
+            progressBar.Opacity = 1;
+            Iniciar.IsEnabled = false;
+            StatusLabel.Content = "Inspecionando...";
+            vExcelv.Criar_Workbooks excel = new vExcelv.Criar_Workbooks();
+            excel.Criar_Workbook();
+            excel.Criar_Woksheet("Conferencia_Processo");
+            excel.criar_cabecalho_Processo();
+            try
+            {
+                await Task.Run(()=>iniciar_Leitor_Release(excel));
                 StatusLabel.Content = "Inspeção Concluida";
-                rectangle_status.Fill = new SolidColorBrush(Colors.Green);
+                rectangle_status.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF06B025"));
+
             }
-            catch {
+
+            catch
+            {
                 StatusLabel.Content = "Erro na Inspeção, arquivo com erro ou corrompido";
                 rectangle_status.Fill = new SolidColorBrush(Colors.Red);
             }
-                
+            excel.Excel_Visible();
+            progressBar.Opacity = 0;
+            Iniciar.IsEnabled = true;
+        }
+
+        private void iniciar_Leitor_Release(vExcelv.Criar_Workbooks excel)
+        {
+            Leitura_blue_prism_process.Leitor_Release(arquivo_raiz,excel);
         }
     }
 }

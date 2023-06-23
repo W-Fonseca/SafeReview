@@ -19,7 +19,8 @@ namespace SafeReview.Objetos_Blue_Prism
             "input - ",
             "window - ",
             "checkbox - ",
-            "table - "
+            "table - ",
+            "select - "
         };
         }
 

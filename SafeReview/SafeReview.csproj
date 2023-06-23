@@ -8,11 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Cognition_Final.png" />
+    <None Remove="Assets\Cognition_Logo.png" />
+    <None Remove="Assets\Cognition_LOGO_white_RGB.png" />
     <None Remove="Assets\icons8-diário-de-bordo-100.png" />
     <None Remove="Assets\icons8-inseto-100.png" />
     <None Remove="Assets\icons8-macbook-chat-100.png" />
     <None Remove="Assets\icons8-macbook-idea-100.png" />
     <None Remove="Assets\icons8-vamos-para-100.png" />
+    <None Remove="Cognition_Final.png" />
+    <None Remove="Cognition_Final_white_RGB.png" />
+    <None Remove="Cognition_Logo.png" />
+    <None Remove="Cognition_LOGO_white_RGB.png" />
     <None Remove="icons8-diário-de-bordo-100.png" />
     <None Remove="icons8-gravidade-100.png" />
     <None Remove="icons8-inseto-100.png" />
@@ -40,6 +47,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Cognition_Final.png" />
+    <Resource Include="Assets\Cognition_Logo.png" />
+    <Resource Include="Assets\Cognition_LOGO_white_RGB.png" />
     <Resource Include="Assets\icons8-diário-de-bordo-100.png" />
     <Resource Include="Assets\icons8-gravidade-100.png" />
     <Resource Include="Assets\icons8-inseto-100.png" />
@@ -47,6 +57,7 @@
     <Resource Include="Assets\icons8-macbook-idea-100.png" />
     <Resource Include="Assets\icons8-vamos-para-100.png" />
     <Resource Include="Assets\SafeReview_96_pixel.png" />
+    <Resource Include="Assets\Cognition_Final_white_RGB.png" />
   </ItemGroup>
 
 </Project>

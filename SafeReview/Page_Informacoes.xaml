@@ -7,8 +7,7 @@
       mc:Ignorable="d" 
       Title="Page_Informacoes">
 
-
-        <TextBlock x:Name="informacoes_projeto" Foreground="White" TextWrapping="WrapWithOverflow" FontSize="16" MouseLeftButtonDown="AjusteImagem">
+    <TextBlock x:Name="informacoes_projeto" Foreground="White" FontSize="14" TextWrapping="WrapWithOverflow" MouseLeftButtonDown="AjusteImagem">
                         Existem várias razões pelas quais é importante adotar boas práticas para construção de objetos e processos. Algumas dessas razões incluem:
       <LineBreak/> 
             <LineBreak/>
@@ -32,7 +31,8 @@
 <LineBreak/>
             <LineBreak/>
             Em resumo, adotar boas práticas para construção de objetos e processos pode deixa-lo mais eficientes, precisos, fáceis de manter e compatíveis com regulamentações. Isso pode resultar em economia de tempo e dinheiro e maior reutilização.
-
-        </TextBlock>
-
+<LineBreak/>
+<LineBreak/>
+            <Label Content="Create by: Github/W-Fonseca" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.6"/>
+    </TextBlock>
 </Page>

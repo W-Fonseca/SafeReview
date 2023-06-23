@@ -8,11 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page_Inspecionar">
 
-    <Viewbox Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+    <Viewbox Margin="14,18,18,18" VerticalAlignment="Top" HorizontalAlignment="Center">
 
         <Grid>
+            <ContentControl x:Name="Page_inspec"/>
+            <Label Content="Inspeção de Release" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Seleção de arquivo ————————————————————————————————————————" HorizontalAlignment="Left" Margin="21,25,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <TextBox x:Name="Txt_Local_Arquivo" HorizontalAlignment="Left" Margin="58,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" Height="18" FontSize="9"/>
+            <TextBox x:Name="Txt_Local_Arquivo" HorizontalAlignment="Left" Margin="58,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="355" Height="18" FontSize="7"/>
             <Label Content="Local do arquivo" HorizontalAlignment="Left" Margin="52,76,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Button Content="Selecionar" HorizontalAlignment="Left" Margin="419,100,0,0" VerticalAlignment="Top" Width="65" Click="Selecionar_Arquivo"/>
             <ComboBox x:Name="SelecaoTipoRelease" HorizontalAlignment="Left" Margin="58,166,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="Item_selecionado">
@@ -23,6 +25,7 @@
             <Label Content="Selecione o tipo de release" HorizontalAlignment="Left" Margin="52,137,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Estado —————————————————————————————————————————————" HorizontalAlignment="Left" Margin="21,150,0,0" VerticalAlignment="Center" Foreground="White"/>
             <Rectangle x:Name="rectangle_status" HorizontalAlignment="Left" Height="25" Margin="26,272,0,0" Stroke="White" VerticalAlignment="Top" Width="580"/>
+            <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="25" Margin="26,272,0,0" Minimum="0" Maximum="100" VerticalAlignment="Top" Width="580" Opacity="0" Background="{x:Null}" IsIndeterminate="True" />
 
             <Button x:Name="Iniciar" Content="Iniciar" HorizontalAlignment="Left" Margin="545,320,0,0" VerticalAlignment="Top" Width="65" Click="Iniciar_Conferencia"/>
             <Label x:Name="StatusLabel" Content="" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top" Foreground="White"/>

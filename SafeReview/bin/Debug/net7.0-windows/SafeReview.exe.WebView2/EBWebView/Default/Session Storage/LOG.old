@@ -1,3 +1,15 @@
-2023/03/19-22:01:24.656 3520 Reusing MANIFEST C:\Users\codex\source\repos\SafeReview\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
-2023/03/19-22:01:24.657 3520 Recovering log #3
-2023/03/19-22:01:24.657 3520 Reusing old log C:\Users\codex\source\repos\SafeReview\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000003.log 
+2023/06/23-16:20:51.487 40a4 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2023/06/23-16:20:51.488 40a4 Recovering log #4
+2023/06/23-16:20:51.492 40a4 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000004.log 
+2023/06/23-16:21:22.487 3324 Level-0 table #8: started
+2023/06/23-16:21:22.495 3324 Level-0 table #8: 34250 bytes OK
+2023/06/23-16:21:22.498 3324 Delete type=0 #4
+2023/06/23-16:21:52.474 3324 Level-0 table #10: started
+2023/06/23-16:21:52.480 3324 Level-0 table #10: 50631 bytes OK
+2023/06/23-16:21:52.483 3324 Delete type=0 #7
+2023/06/23-16:22:17.472 3324 Level-0 table #12: started
+2023/06/23-16:22:17.506 3324 Level-0 table #12: 74849 bytes OK
+2023/06/23-16:22:17.517 3324 Delete type=0 #9
+2023/06/23-16:27:23.202 3324 Level-0 table #14: started
+2023/06/23-16:27:23.214 3324 Level-0 table #14: 74492 bytes OK
+2023/06/23-16:27:23.218 3324 Delete type=0 #11

@@ -1,3 +1,15 @@
-2023/03/20-09:19:45.737 a604 Reusing MANIFEST C:\Users\codex\source\repos\SafeReview\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
-2023/03/20-09:19:45.739 a604 Recovering log #3
-2023/03/20-09:19:45.740 a604 Reusing old log C:\Users\codex\source\repos\SafeReview\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000003.log 
+2023/06/23-16:29:43.472 3458 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2023/06/23-16:29:43.476 3458 Recovering log #13
+2023/06/23-16:29:43.480 3458 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000013.log 
+2023/06/23-16:29:57.201 3458 Level-0 table #17: started
+2023/06/23-16:29:57.213 3458 Level-0 table #17: 72513 bytes OK
+2023/06/23-16:29:57.216 3458 Delete type=0 #13
+2023/06/23-16:29:57.216 4034 Compacting 4@0 + 1@1 files
+2023/06/23-16:29:57.226 4034 Generated table #18@0: 289 keys, 74771 bytes
+2023/06/23-16:29:57.226 4034 Compacted 4@0 + 1@1 files => 74771 bytes
+2023/06/23-16:29:57.227 4034 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/06/23-16:29:57.229 4034 Delete type=2 #8
+2023/06/23-16:29:57.229 4034 Delete type=2 #10
+2023/06/23-16:29:57.229 4034 Delete type=2 #12
+2023/06/23-16:29:57.229 4034 Delete type=2 #14
+2023/06/23-16:29:57.229 4034 Delete type=2 #17
