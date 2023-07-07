@@ -184,7 +184,7 @@
                 </Label>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Opacity="0.6">
-                <Label Content="Create Grafic" FontFamily="Gilroy ☞" FontSize="14" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Grafico" Margin="-8,0,9,0">
+                <Label Content="Dashboard" FontFamily="Gilroy ☞" FontSize="14" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Grafico" Margin="-8,0,9,0">
                     <Label.ToolTip>
                         <ToolTip Content="Gera um grafico sobre a release"/>
                     </Label.ToolTip>
@@ -198,14 +198,14 @@
                 </Label>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="4" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" Opacity="0.6">
-                <Label Content="Documents" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="4" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" Margin="-8,-1,21,-1">
+                <Label Content="Ref. Doc." FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="4" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" Margin="-8,-1,21,-1">
                     <Label.ToolTip>
                         <ToolTip Content="Documentação sobre melhores práticas"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_FeedBack" Opacity="0.6">
-                <Label  Content="FeedBack"  MouseLeftButtonDown="CLB_FeedBack" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="6" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Margin="-8,-1,32,-1" >
+                <Label  Content="Feedback"  MouseLeftButtonDown="CLB_FeedBack" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="6" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Margin="-8,-1,32,-1" >
                     <Label.ToolTip>
                         <ToolTip Content="Envie seu feedback ou ideia"/>
                     </Label.ToolTip>

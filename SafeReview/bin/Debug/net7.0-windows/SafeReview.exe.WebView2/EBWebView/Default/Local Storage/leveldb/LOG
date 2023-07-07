@@ -1,8 +1,8 @@
-2023/06/23-16:29:42.024 3458 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/06/23-16:29:42.026 3458 Recovering log #13
-2023/06/23-16:29:42.027 3458 Level-0 table #17: started
-2023/06/23-16:29:42.035 3458 Level-0 table #17: 24716 bytes OK
-2023/06/23-16:29:42.042 3458 Delete type=0 #13
-2023/06/23-16:29:57.198 4ba4 Level-0 table #20: started
-2023/06/23-16:29:57.208 4ba4 Level-0 table #20: 24566 bytes OK
-2023/06/23-16:29:57.211 4ba4 Delete type=0 #18
+2023/06/27-16:43:52.204 4118 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/06/27-16:43:52.215 4118 Recovering log #30
+2023/06/27-16:43:52.222 4118 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000030.log 
+2023/06/27-16:44:52.566 4118 Level-0 table #34: started
+2023/06/27-16:44:52.578 4118 Level-0 table #34: 27351 bytes OK
+2023/06/27-16:44:52.582 4118 Delete type=0 #30
+2023/06/27-16:46:58.776 5d78 Level-0 table #36: started
+2023/06/27-16:46:58.800 5d78 Level-0 table #36: 45271 bytes OK

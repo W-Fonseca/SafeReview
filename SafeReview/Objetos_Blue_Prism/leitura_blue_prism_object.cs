@@ -2,13 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SafeReview.Objetos_Blue_Prism
 {
@@ -22,7 +27,8 @@ namespace SafeReview.Objetos_Blue_Prism
             leitura_blue_prism_object programa_objeto = new leitura_blue_prism_object();
             excel.Criar_Woksheet("Conferencia_Objetos");
             excel.criar_cabecalho_Objetos();
-           /* programa_objeto.Check_elements_and_attibutes(Local_Release, excel);
+            
+            programa_objeto.Check_element_and_Attributes(Local_Release, excel);
             programa_objeto.Check_Publish(Local_Release, excel);
             programa_objeto.Count_Page(Local_Release, excel);
             programa_objeto.Check_wait_time(Local_Release, excel);
@@ -31,113 +37,80 @@ namespace SafeReview.Objetos_Blue_Prism
             programa_objeto.Check_Narrative(Local_Release, excel);
             programa_objeto.Count_Stages_InPage(Local_Release, excel);
             programa_objeto.Check_Contais_Stage_InPage(Local_Release, excel);
-           */
-            programa_objeto.Tamanho_blocos(Local_Release, excel); 
+            programa_objeto.Tamanho_blocos(Local_Release, excel);
+            programa_objeto.Color_Block(Local_Release, excel);
+            programa_objeto.Identif_Subsheets_And_Actions(Local_Release, excel);
+            programa_objeto.Search_Attach(Local_Release, excel);
+            programa_objeto.Check_Exceptions(Local_Release, excel);
+            programa_objeto.Check_Environment(Local_Release, excel);
+            programa_objeto.CheckAllHardCodeProcess(Local_Release, excel);
+            programa_objeto.Check_SendkeysAndMouseClick(Local_Release, excel);
+
         }
-        public void Check_elements_and_attibutes(string Local_Release, vExcelv.Criar_Workbooks excel)
+
+        public void Check_element_and_Attributes(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
-            string nome_objeto = "";
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
             ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
-
-            XmlNodeList objectNodes = doc.SelectNodes(".//ns:object", ns);
-
-            foreach (XmlNode objectNode in objectNodes) //cada objeto
+            XmlNodeList elements = doc.SelectNodes(".//ns:object/ns:process//ns:element[ns:type]", ns);
+            // XmlNodeList elements = doc.SelectNodes(".//ns:object/ns:process//ns:element/ns:element[ns:type]", ns);
+            foreach (XmlNode element in elements) //cada objeto
             {
-
-                nome_objeto = objectNode.Attributes["name"].Value;
-                Console.WriteLine("Object Name: " + objectNode.Attributes["name"].Value);
-
-
-                XmlNodeList elementNodes = objectNode.SelectNodes(".//ns:element", ns);
-                foreach (XmlNode elementNode in elementNodes) //cada elemento
+                Check_Nome_Elemento validador = new Check_Nome_Elemento();
+                if (validador.ValidarNome(element.Attributes["name"].Value) == false)
                 {
-                    if (elementNode.Attributes != null && elementNode.Attributes["name"] != null)
+                    XmlNode ParentStage = element;
+
+                    while (ParentStage != null && ParentStage.Name != "object")
+                    {
+                        ParentStage = ParentStage.SelectSingleNode("..");
+                    }
+
+                    numero_linha_excel += 1;
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "tipo de elemento com descrição errada ou sem hífens com espaçamento entre ele");
+                }
+
+                XmlNodeList attributes = element.SelectNodes("./ns:attributes/ns:attribute", ns);
+
+                foreach (XmlNode attribute in attributes) //cada atributos
+                {
+                    if (attribute.Attributes["name"].Value == "ScreenVisible" && attribute.Attributes["inuse"] != null)
                     {
 
-                        Console.WriteLine("Element Name: " + elementNode.Attributes["name"].Value);
-                        Check_Nome_Elemento validador = new Check_Nome_Elemento();
+                        XmlNode ParentStage = element;
 
-                        if (validador.ValidarNome(elementNode.Attributes["name"].Value))
+                        while (ParentStage != null && ParentStage.Name != "object")
                         {
-                            Console.WriteLine("existe");
+                            ParentStage = ParentStage.SelectSingleNode("..");
                         }
-                        else
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "ScreenVisible = True");
+                        //(ScreenVisible não pode estar marcado, pois cria uma dependencia da aplicação estar visivel mesmo estando minimizada)
+                    }
+
+                    else if (attribute.Attributes["name"].Value == "Visible" && attribute.Attributes["inuse"] != null) //erro encontrado, não pode ter Visible aplicado.
+                    {
+
+                        XmlNode ParentStage = element;
+
+                        while (ParentStage != null && ParentStage.Name != "object")
                         {
-                            numero_linha_excel += 1;
-                            excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
-                            excel.Escreva_Worksheet(numero_linha_excel, "B", nome_objeto);
-                            excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + elementNode.Attributes["name"].Value);
-                            excel.Escreva_Worksheet(numero_linha_excel, "D", "tipo de elemento com descrição errada ou sem hífens com espaçamento entre ele");
+                            ParentStage = ParentStage.SelectSingleNode("..");
                         }
-
-                        XmlNodeList Atributoss = elementNode.SelectNodes("./ns:attributes", ns);
-
-                        foreach (XmlNode Atributo in Atributoss) //cada atributos
-                        {
-
-                            XmlNodeList Atributs = Atributo.SelectNodes("./ns:attribute", ns);
-
-                            foreach (XmlNode Atribut in Atributs) //cada atributos
-                            {
-                                if (Atribut.Attributes != null && Atribut.Attributes["name"] != null)
-                                {
-                                    if (Atribut.Attributes["name"].Value == "ScreenVisible" && Atribut.Attributes["inuse"] != null) //erro encontrado, não pode ter screenVisible aplicado.
-                                    {
-                                        numero_linha_excel += 1;
-
-                                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
-                                        excel.Escreva_Worksheet(numero_linha_excel, "B", nome_objeto);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + elementNode.Attributes["name"].Value);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "D", "ScreenVisible = True");
-                                        //(ScreenVisible não pode estar marcado, pois cria uma dependencia da aplicação estar visivel mesmo estando minimizada)
-                                    }
-
-                                    else if (Atribut.Attributes["name"].Value == "Visible" && Atribut.Attributes["inuse"] != null) //erro encontrado, não pode ter Visible aplicado.
-                                    {
-                                        numero_linha_excel += 1;
-
-                                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
-                                        excel.Escreva_Worksheet(numero_linha_excel, "B", nome_objeto);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + elementNode.Attributes["name"].Value);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Visible = True");
-                                        //(ScreenVisible não pode estar marcado, pois cria uma dependencia da aplicação estar visivel mesmo estando minimizada)
-                                    }
-
-                                    else
-                                    {
-                                        if (Atribut.Attributes["inuse"] != null)
-                                        {
-
-                                            XmlNodeList ProcessValues = Atribut.SelectNodes(".//ns:ProcessValue", ns);
-                                            foreach (XmlNode ProcessValue in ProcessValues) //cada atributo
-                                            {
-
-                                                if (ProcessValue.Attributes["value"].Value != null)
-                                                {
-                                                    Console.WriteLine("Atributo Name: " + Atribut.Attributes["name"].Value + " Atributo Inuse: " + Atribut.Attributes["inuse"].Value + " Atributo Valor: " + ProcessValue.Attributes["value"].Value);
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("Atributo Name: " + Atribut.Attributes["name"].Value + " Atributo Inuse: " + Atribut.Attributes["inuse"].Value);
-                                                }
-                                            }
-
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Atributo Name: " + Atribut.Attributes["name"].Value);
-                                        }
-                                    }
-                                    if (Atribut.Attributes["name"].Value == "MatchIndex")
-                                    {
-                                        break;
-                                    }
-                                }
-                            }
-                        }
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Visible = True");
+                        //(ScreenVisible não pode estar marcado, pois cria uma dependencia da aplicação estar visivel mesmo estando minimizada)
                     }
                 }
             }
@@ -292,6 +265,10 @@ namespace SafeReview.Objetos_Blue_Prism
 
         public void Check_wait_time(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
+            /*
+             * Os timeouts utilizados nas condições dos waits estão definidas com variáveis globais alocadas na action Initilize do BO, sendo no mínimo: Global Timeout - S | Global Timeout - M | Global Timeout - L, junto com as demais variáveis globais
+             * 
+             */
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
@@ -355,7 +332,7 @@ namespace SafeReview.Objetos_Blue_Prism
                     excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
                     excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + nome_Pagina);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception com: " + Exception.Attributes["type"].Value + " o correto é: System Exception ou Business Exception");
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception com: " + Exception.Attributes["type"].Value + " o correto é: 'System Exception' ou 'Business Exception'");
                 }
             }
         }
@@ -376,7 +353,7 @@ namespace SafeReview.Objetos_Blue_Prism
                 //try
                 //{
                 XmlNode Subsheetid_precondition = doc.SelectSingleNode(".//ns:object/ns:process/ns:stage[@type='Start'][ns:subsheetid='" + subsheetid + "']", ns);
-                string precondition_narrative = Subsheetid_precondition.SelectSingleNode("..").SelectSingleNode("./ns:preconditions/ns:condition/@narrative", ns).Value;
+                string precondition_narrative = Subsheetid_precondition.SelectSingleNode("..").SelectSingleNode("./ns:preconditions/ns:condition/@narrative", ns)?.Value ?? "";
                 try
                 {
                     if (precondition_narrative == "" || precondition_narrative == null)
@@ -422,6 +399,9 @@ namespace SafeReview.Objetos_Blue_Prism
         }
         public void Check_Narrative(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
+            /*
+             * O campo de descrição de cada página está preenchido com o resumo do que nela será executado
+             */
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
@@ -473,6 +453,378 @@ namespace SafeReview.Objetos_Blue_Prism
                         }
                     }
                     catch { }
+                }
+            }
+        }
+        public void Color_Block(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * O bloco 'Input' tem a cor de fundo #0000FF
+             * O bloco 'Local' tem a cor de fundo #008000
+             * Os blocos que incluem 'Global' tem a cor de fundo #ED7D31
+             * O bloco 'Output' tem a cor de fundo #00CCFF
+             */
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodes = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='Block']", ns);
+            foreach (XmlNode stage in ListNodes)
+            {
+
+                string objectid = stage.SelectSingleNode("..").SelectSingleNode("..").Attributes["id"].Value;
+                string subsheetid = stage.SelectSingleNode("./ns:subsheetid", ns)?.InnerText ?? "";
+                string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
+
+                if (stage.Attributes["name"].Value.Contains("Global", StringComparison.OrdinalIgnoreCase) && stage.Attributes["type"].Value == "Block")
+                {
+                    if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "ED7D31")
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Global' deve ser '0000FF'");
+                    }
+                }
+
+                if (stage.Attributes["name"].Value.Contains("Input", StringComparison.OrdinalIgnoreCase) && stage.Attributes["type"].Value == "Block")
+                {
+
+                    if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "0000FF")
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Input' deve ser '0000FF'");
+                    }
+                }
+
+                if (stage.Attributes["name"].Value.Contains("Local", StringComparison.OrdinalIgnoreCase) && stage.Attributes["type"].Value == "Block")
+                {
+
+                    if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "008000")
+                    {
+
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Local' deve ser '008000'");
+                    }
+                }
+
+                if (stage.Attributes["name"].Value.Contains("Output", StringComparison.OrdinalIgnoreCase) && stage.Attributes["type"].Value == "Block")
+                {
+
+                    if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "00CCFF")
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Output' deve ser '00CCFF'");
+                    }
+                }
+            }
+        }
+        public void Identif_Subsheets_And_Actions(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * Nenhum objeto contém uma ação que chame uma action do próprio objeto, exceto attach e dettach nem de qualquer outro objeto
+             */
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList Nodes = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='SubSheet']", ns);
+            foreach (XmlNode node in Nodes)
+            {
+                string objectid = node.SelectSingleNode("..").SelectSingleNode("..").Attributes["id"].Value;
+                string subsheetid = node.SelectSingleNode("./ns:subsheetid", ns).InnerText;
+                string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
+
+                if (node.Attributes["name"].Value.Contains("Attach", StringComparison.OrdinalIgnoreCase) == false && node.Attributes["name"].Value.Contains("Dettach", StringComparison.OrdinalIgnoreCase) == false)
+                {
+                    numero_linha_excel += 1;
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma mensão a outra página com nome: '" + node.Attributes["name"].Value + "' sendo utilizada na página.");
+                }
+            }
+            XmlNodeList Nodes2 = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='Action']", ns);
+            foreach (XmlNode node in Nodes2)
+            {
+                string objectid = node.SelectSingleNode("..").SelectSingleNode("..").Attributes["id"].Value;
+                string subsheetid = node.SelectSingleNode("./ns:subsheetid", ns).InnerText;
+                string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
+                numero_linha_excel += 1;
+                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
+                excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
+                excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma action com nome: '" + node.Attributes["name"].Value + "' sendo utilizada na página.");
+            }
+        }
+        public void Search_Attach(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * O Business Object tem uma ação 'Attach' que lê o status conectado antes de ser executada
+             * Todas as Actions do Business Object começam com o stage Wait após o attach para verificar se o aplicativo está na tela correta (precisei aproveitar o loop não deu para criar uma nova classe)
+             */
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList Nodes = doc.SelectNodes(".//ns:object/ns:process/ns:subsheet", ns);
+
+            foreach (XmlNode Node in Nodes)
+            {
+
+                string objectid = Node.SelectSingleNode("..").SelectSingleNode("..").Attributes["id"].Value;
+                string objectname = Node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value;
+                string namepage = Node.SelectSingleNode("./ns:name", ns).InnerText;
+                string SubsheetID = Node.Attributes["subsheetid"].Value;
+                string SubsheetIDAttach = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='SubSheet'][ns:subsheetid='" + SubsheetID + "']/ns:processid", ns)?.InnerText ?? null;
+
+                XmlNode CheckAttach = null;
+                bool Pageattach = false;
+                if (SubsheetIDAttach != null)
+                {
+                    CheckAttach = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Navigate']/ns:subsheetid['" + SubsheetIDAttach + "']", ns).SelectSingleNode("..").SelectSingleNode(".//ns:id['AttachApplication']", ns);
+                }
+                if (CheckAttach == null)
+                {
+                    CheckAttach = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Navigate'][ns:subsheetid='" + SubsheetID + "']", ns)?.ParentNode?.SelectSingleNode(".//ns:id['AttachApplication']", ns);
+                    if (CheckAttach != null)
+                    {
+                        Pageattach = true;
+                    }
+                }
+                if (CheckAttach == null && namepage != "Clean Up")
+                {
+                    numero_linha_excel += 1;
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe attach nessa página");
+                }
+                else if (CheckAttach != null && namepage != "Clean Up" && Pageattach == false)
+                {
+                    string StartOnsucess = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Start'][ns:subsheetid='" + SubsheetID + "']/ns:onsuccess", ns).InnerText;
+                    string processID = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@stageid='" + StartOnsucess + "']/ns:processid", ns)?.InnerText ?? null;
+                    string WaitOnsucess = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@stageid='" + StartOnsucess + "']/ns:onsuccess", ns)?.InnerText ?? null;
+                    if (processID != SubsheetIDAttach)
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Item depois do Start não é Attach");
+                    }
+                    if (WaitOnsucess != null) // <-- Todas as Actions do Business Object começam com o stage Wait após o attach para verificar se o aplicativo está na tela correta
+                    {
+                        string WaitCheck = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@stageid='" + WaitOnsucess + "']", ns).Attributes["type"].Value;
+
+                        if (WaitCheck != "WaitStart")
+                        {
+                            numero_linha_excel += 1;
+                            excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                            excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
+                            excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
+                            excel.Escreva_Worksheet(numero_linha_excel, "D", "Falta Wait depois do Attach");
+                        }
+                    }
+                }
+            }
+        }
+        public void Check_Exceptions(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+            * As exceções possuem "Name" e "Type" iguais
+            * O texto do campo Exception Detail não se repete para mais de uma Exception do Processo
+            */
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodes = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='Exception']", ns);
+
+            Dictionary<string, string> ExceptionDetails = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            string nome_Pagina;
+
+            foreach (XmlNode Node in ListNodes)
+            {
+                string nome_stage = Node.Attributes["name"].Value;
+                if (Node.SelectSingleNode("./ns:exception/@detail", ns).Value != null && Node.SelectSingleNode("./ns:exception/@type", ns).Value != null && Node.SelectSingleNode("./ns:exception/@usecurrent", ns) == null)
+                {
+                    nome_Pagina = null;
+                    try
+                    {
+                        string subsheetid = Node.SelectSingleNode("./ns:subsheetid", ns).InnerText;
+                        nome_Pagina = doc.SelectSingleNode(".//ns:object/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
+                    }
+                    catch { nome_Pagina = "Main Page"; }
+                    if (ExceptionDetails.ContainsKey(nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value))
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", Node.SelectSingleNode("..").Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Na pagina '" + nome_Pagina + "' Foi encontrado o Exception [" + nome_stage + "] igual dá " + ExceptionDetails[nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value]);
+                    }
+                    else
+                    {
+                        ExceptionDetails.Add(nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value, "Pagina: [" + nome_Pagina + "] Exception Name: [" + nome_stage + "]");
+                    }
+                }
+            }
+        }
+        public void Check_Environment(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * Nenhuma variável de ambiente está sendo chamada pelo objeto (devem ser chamadas pelo processo)
+             */
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodes = doc.SelectNodes(".//ns:object/ns:process/ns:stage[ns:exposure='Environment']", ns);
+
+            foreach (XmlNode Node in ListNodes)
+            {
+                XmlNode ParentStage = Node;
+
+                while (ParentStage != null && ParentStage.Name != "object")
+                {
+                    ParentStage = ParentStage.SelectSingleNode("..");
+                }
+                string objectid = ParentStage.Attributes["id"].Value;
+                string subsheetid = Node.SelectSingleNode("./ns:subsheetid", ns)?.InnerText ?? "";
+                string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
+
+                numero_linha_excel += 1;
+                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                excel.Escreva_Worksheet(numero_linha_excel, "C", Name_page);
+                excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma variavel de ambiente no stage: " + Node.Attributes["name"].Value);
+
+            }
+        }
+        public void CheckAllHardCodeProcess(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * Nenhum Data Item/Collection/Stage contém informações codificada diretamente neles que poderiam mudar com o tempo/circunstâncias 
+            */
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodesA = doc.SelectNodes(".//ns:object/ns:process/ns:stage//@expr", ns);
+            XmlNodeList ListNodesB = doc.SelectNodes(".//ns:object/ns:process/ns:stage//@expression", ns);
+            XmlNodeList ListNodesC = doc.SelectNodes(".//ns:object/ns:process/ns:stage/ns:initialvalue", ns);
+            CheckStage(ListNodesA, excel);
+            CheckStage(ListNodesB, excel);
+            CheckStage(ListNodesC, excel);
+
+            void CheckStage(XmlNodeList ListNodes, vExcelv.Criar_Workbooks excel)
+            {
+                foreach (XmlNode stage in ListNodes)
+                {
+                    Regex regex1 = new Regex(@"\[[^\]]*\]"); // sem '[' e ']'
+                    Regex regex2 = new Regex(@"\([^)]*\)"); // sem '(' e ')' 
+                    string expression = stage.Value ?? stage.InnerText;
+                    Match match1;
+                    Match match2;
+                    try
+                    {
+                        match1 = regex1.Match(stage.Value);
+                        match2 = regex2.Match(stage.Value);
+                    }
+                    catch
+                    {
+                        match1 = regex1.Match(stage.InnerText);
+                        match2 = regex2.Match(stage.InnerText);
+                    }
+                    
+                    if (match1.Success == false && match2.Success == false)
+                    {
+                        if (expression != "" && expression != "Business Exception" && expression != "System Exception" && expression != "True" && expression != "False")
+                        {
+                            string nome_Pagina;
+                            XmlNode ParentStage = stage;
+
+                            while (ParentStage != null && ParentStage.Name != "stage")
+                            {
+                                ParentStage = ParentStage.SelectSingleNode("..");
+                            }
+
+                            XmlNode ParentObject = ParentStage;
+
+                            while (ParentObject != null && ParentObject.Name != "object")
+                            {
+                                ParentObject = ParentObject.SelectSingleNode("..");
+                            }
+
+                            if (ParentStage.Attributes["type"].Value != "Calculation" && ParentStage.Attributes["type"].Value != "MultipleCalculation")
+                            {
+                                string subsheetid = ParentStage.SelectSingleNode("./ns:subsheetid", ns)?.InnerText ?? "";
+                                nome_Pagina = doc.SelectSingleNode(".//ns:object[@id='" + ParentObject.Attributes["id"].Value + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns)?.SelectSingleNode("./ns:name", ns)?.InnerText ?? "Main Page";
+                                if(nome_Pagina != "Main Page")
+                                { 
+                                numero_linha_excel += 1;
+                                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                                excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:object[@id='" + ParentObject.Attributes["id"].Value +"']/@name", ns).Value);
+                                excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
+                                excel.Escreva_Worksheet(numero_linha_excel, "D", "O item: " + ParentStage.Attributes["name"].Value + " Contem HardCode com a expressão: " + expression);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void Check_SendkeysAndMouseClick(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * Todos os objetos tem o modo de execução de segundo plano, a menos que incluam cliques globais ou motivos que possam exigir o uso em primeiro plano.
+             */
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            //[not(ns: subsheetid)]"
+            XmlNodeList idNodes = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='Navigate'][ns:step/ns:action]", ns);
+
+            foreach (XmlNode stage in idNodes)
+            {//[ns:exposure='Environment']"
+                if (stage?.SelectSingleNode("./ns:step/ns:action[ns:id='WebClick']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='SendKeyEvents']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='SendKeys']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='RegionParentClickCentre']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='UIAClickCentre']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='AAClickCentre']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='ClickWindowCentre']", ns) != null || stage?.SelectSingleNode("./ns:step/ns:action[ns:id='MouseClickCentre']", ns) != null)
+                {
+                    XmlNodeList Actions = stage.SelectNodes("./ns:step/ns:action/ns:id", ns);
+
+                    if (Actions[0].InnerText != "WebFocus" && Actions[0].InnerText != "ActivateApp")
+                    {
+                        XmlNode ParentObject = stage;
+
+                        while (ParentObject != null && ParentObject.Name != "object")
+                        {
+                            ParentObject = ParentObject.SelectSingleNode("..");
+                        }
+
+                        string subsheetid = stage.SelectSingleNode("./ns:subsheetid", ns)?.InnerText ?? "";
+                        string nome_Pagina = doc.SelectSingleNode(".//ns:object[@id='" + ParentObject.Attributes["id"].Value + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns)?.SelectSingleNode("./ns:name", ns)?.InnerText ?? "Main Page";
+
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", ParentObject.Attributes["name"].Value);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Stagio ["+ stage.Attributes["name"].Value + "] sem Activate Application ou Focus");
+                    }
                 }
             }
         }

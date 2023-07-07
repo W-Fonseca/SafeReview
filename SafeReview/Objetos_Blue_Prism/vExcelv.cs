@@ -58,9 +58,9 @@ namespace SafeReview.Objetos_Blue_Prism
             {
                 _workbook.Worksheets["Conferencia_Objetos"].select();
                 _worksheet.Range["A1"].Value = "Erro / Alerta / Notificação";
-                _worksheet.Range["B1"].Value = "Nome do Objeto";
-                _worksheet.Range["C1"].Value = "Elemento ou Ação";
-                _worksheet.Range["D1"].Value = "Descrição do Erro ou Alerta";
+                _worksheet.Range["B1"].Value = "Nome Objeto";
+                _worksheet.Range["C1"].Value = "Elemento / Ação";
+                _worksheet.Range["D1"].Value = "Descrição";
             }
 
             public void criar_cabecalho_Processo()

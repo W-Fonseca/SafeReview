@@ -32,7 +32,6 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (nome.Contains(nom, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
-                    break;
                 }
 
             }

@@ -13,7 +13,6 @@ namespace SafeReview.Objetos_Blue_Prism
         public static void Leitura_objetos_Tracker(string Local_Release, vExcelv.Criar_Workbooks excel) //encontra os elementos de cada objeto
         {
             int numero_linha_excel = 1;
-            string nome_objeto = "";
             string SubsheetID = "";
 
             XmlDocument doc = new XmlDocument();

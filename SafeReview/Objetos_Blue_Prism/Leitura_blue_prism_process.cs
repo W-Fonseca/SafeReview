@@ -25,8 +25,7 @@ namespace SafeReview.Objetos_Blue_Prism
         {
             //---- não funcionando direito ----- programa.Padrao_leitura(Local_Release, excel);
             Leitura_blue_prism_process programa = new Leitura_blue_prism_process();
-            excel.Excel_Visible();
-            /*
+           
             programa.conferencia_paginas_comuns(Local_Release, excel);
             programa.Tamanho_blocos(Local_Release, excel);
             programa.NomeProcessPadrao(Local_Release, excel);
@@ -40,12 +39,16 @@ namespace SafeReview.Objetos_Blue_Prism
             programa.E_mail_in_End_Process(Local_Release, excel);
             programa.check_dataItem(Local_Release, excel);
             programa.Check_Exceptions(Local_Release, excel);
-            programa.work_queue(Local_Release, excel);
+            programa.Check_work_queue_name(Local_Release, excel);
             programa.CheckAllHardCodeProcess(Local_Release, excel);
             programa.Check_Global_Itens(Local_Release, excel);
-            */
+            programa.Recovery_In_MainPage(Local_Release, excel);
+            //programa.Padrao_leitura(Local_Release, excel);
+
             leitura_blue_prism_object.Leitura_objetos(Local_Release, excel);
-            
+
+            excel.Excel_Visible();
+
         }
         public void conferencia_paginas_comuns(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
@@ -74,9 +77,6 @@ namespace SafeReview.Objetos_Blue_Prism
             ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
 
             XmlNodeList contentsNodes = doc.SelectNodes("//*[@count]", ns);
-
-            Console.WriteLine(contentsNodes.Count);
-            Console.WriteLine(contentsNodes);
 
             Dictionary<string, string> nomes_paginas = new Dictionary<string, string>();
 
@@ -118,7 +118,7 @@ namespace SafeReview.Objetos_Blue_Prism
 
                         foreach (XmlNode tag in tags) //cada objeto
                         {
-                            nomes_paginas.Add(Subsheet.Attributes["subsheetid"].Value, tag.InnerText);
+                            //nomes_paginas.Add(Subsheet.Attributes["subsheetid"].Value, tag.InnerText);
                             if (tag.InnerText.Contains("Close Down", StringComparison.OrdinalIgnoreCase) && Check_CloseDown == false)
                             {
                                 Check_CloseDown = true;
@@ -266,7 +266,7 @@ namespace SafeReview.Objetos_Blue_Prism
 
                         if (stage.Attributes["type"].Value == "Exception" && stage.Attributes["name"].Value != "TERMINATE")
                         {
-                            bool Check_Exceptions = false;
+
                             //string nome_da_pagina = "";
 
                             XmlNodeList exceptions = stage.SelectNodes("./ns:exception", ns);
@@ -286,9 +286,9 @@ namespace SafeReview.Objetos_Blue_Prism
                                         numero_linha_excel += 1;
                                         excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
                                         excel.Escreva_Worksheet(numero_linha_excel, "B", process_name);
-                                        XmlNode nome_da_página = stage.SelectSingleNode("./ns:subsheetid", ns);
-                                        Console.WriteLine(nome_da_página.InnerText);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "C", nomes_paginas[nome_da_página.InnerText]); //arrumar aqui, preciso saber o nome da página.
+                                        string subsheetid = stage.SelectSingleNode("./ns:subsheetid", ns).InnerText;
+                                        string nome_Pagina = doc.SelectSingleNode(".//ns:process/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
+                                        excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
                                         excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception: " + stage.Attributes["name"].Value + " com marcação diferente de 'System Exception' ou 'Business Exception'");
                                     }
                                 }
@@ -299,9 +299,9 @@ namespace SafeReview.Objetos_Blue_Prism
                                         numero_linha_excel += 1;
                                         excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
                                         excel.Escreva_Worksheet(numero_linha_excel, "B", process_name);
-                                        XmlNode nome_da_página = stage.SelectSingleNode("./ns:subsheetid", ns);
-                                        Console.WriteLine(nome_da_página.InnerText);
-                                        excel.Escreva_Worksheet(numero_linha_excel, "C", nomes_paginas[nome_da_página.InnerText]); //arrumar aqui, preciso saber o nome da página.
+                                        string subsheetid = stage.SelectSingleNode("./ns:subsheetid", ns).InnerText;
+                                        string nome_Pagina = doc.SelectSingleNode(".//ns:process/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
+                                        excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina); //arrumar aqui, preciso saber o nome da página.
                                         excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception: " + stage.Attributes["name"].Value + " com marcação diferente de 'System Exception' ou 'Business Exception'");
                                     }
                                 }
@@ -623,7 +623,6 @@ namespace SafeReview.Objetos_Blue_Prism
                     }
                 }
             }
-
             // XmlNode StagesName = doc.SelectSingleNode(".//ns:process/ns:process/ns:stage/ns:subsheet/ns:name", ns);
             XmlNodeList StagesName = doc.SelectNodes(".//ns:process/ns:process/ns:subsheet/ns:name", ns);
 
@@ -647,9 +646,6 @@ namespace SafeReview.Objetos_Blue_Prism
                         break;
 
                     }
-
-                    // começa aqui
-
                 }
                 if (existeID == true)
                 {
@@ -877,7 +873,7 @@ namespace SafeReview.Objetos_Blue_Prism
              * A página End Process e/ou a Close Down possuem Kill e/ou Close Instances para encerrar todas as aplicações utilizadas durante o processamento
              */
             bool check_closedown_EndProcess = false;
-            bool check_EndProcess = false;
+
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
@@ -952,7 +948,6 @@ namespace SafeReview.Objetos_Blue_Prism
         public void E_mail_in_End_Process(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
             // não terminado
-            bool encontrado = false;
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
             XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
@@ -1144,7 +1139,6 @@ namespace SafeReview.Objetos_Blue_Prism
         }
         public void Check_Exceptions(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
-
             /*
              * O tipo da exceção está preenchido e foi selecionado entre os já existentes
              */
@@ -1216,7 +1210,7 @@ namespace SafeReview.Objetos_Blue_Prism
                 }
             }
         }
-        public void work_queue(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_work_queue_name(string Local_Release, vExcelv.Criar_Workbooks excel)
         {
             /*
              * O nome da Work Queue está igual ao nome do seu respectivo processo
@@ -1238,7 +1232,7 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (similaridade <= 0.80)
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
                         excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:process/ns:process/@name", ns).Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", "Work Queue");
                         excel.Escreva_Worksheet(numero_linha_excel, "D", "Nome do processo ( " + NodeProcess_Name.Value + " ) e Work Queue ( " + NomeQueue.Value + " ) são diferentes!");
@@ -1248,7 +1242,7 @@ namespace SafeReview.Objetos_Blue_Prism
             catch 
             {
                 numero_linha_excel += 1;
-                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
                 excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:process/ns:process/@name", ns).Value);
                 excel.Escreva_Worksheet(numero_linha_excel, "C", "Work Queue");
                 excel.Escreva_Worksheet(numero_linha_excel, "D", "Não foi possivel identificar um work queue na release");
@@ -1284,9 +1278,10 @@ namespace SafeReview.Objetos_Blue_Prism
             ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
             XmlNodeList ListNodesA = doc.SelectNodes(".//ns:process/ns:process/ns:stage//@expr", ns);
             XmlNodeList ListNodesB = doc.SelectNodes(".//ns:process/ns:process/ns:stage//@expression", ns);
+            XmlNodeList ListNodesC = doc.SelectNodes(".//ns:process/ns:process/ns:stage/ns:initialvalue", ns);
             CheckStage(ListNodesA, excel);
-            numero_linha_excel += 1;
             CheckStage(ListNodesB, excel);
+            CheckStage(ListNodesC, excel);
 
             void CheckStage(XmlNodeList ListNodes, vExcelv.Criar_Workbooks excel)
             {
@@ -1295,10 +1290,19 @@ namespace SafeReview.Objetos_Blue_Prism
 
                     Regex regex1 = new Regex(@"\[[^\]]*\]"); // sem '[' e ']'
                     Regex regex2 = new Regex(@"\([^)]*\)"); // sem '(' e ')' 
-                    string expression = stage.Value;
-
-                    Match match1 = regex1.Match(stage.Value);
-                    Match match2 = regex2.Match(stage.Value);
+                    string expression = stage.Value ?? stage.InnerText;
+                    Match match1;
+                    Match match2;
+                    try
+                    {
+                        match1 = regex1.Match(stage.Value);
+                        match2 = regex2.Match(stage.Value);
+                    }
+                    catch
+                    {
+                        match1 = regex1.Match(stage.InnerText);
+                        match2 = regex2.Match(stage.InnerText);
+                    }
                     if (match1.Success == false && match2.Success == false)
                     {
                         //     int index = match.Index;
@@ -1314,19 +1318,29 @@ namespace SafeReview.Objetos_Blue_Prism
                                 ParentStage = ParentStage.SelectSingleNode("..");
                             }
 
+                            XmlNode ParentProcess = ParentStage;
+
+                            while (ParentProcess != null && ParentProcess.Name != "process")
+                            {
+                                ParentProcess = ParentProcess.SelectSingleNode("..");
+                            }
+                            ParentProcess = ParentProcess.SelectSingleNode("..");
+
+                            string teste = ParentStage.Attributes["type"].Value;
+
                             if (ParentStage.Attributes["type"].Value != "Calculation" && ParentStage.Attributes["type"].Value != "MultipleCalculation")
                             {
-                                try
-                                {
-                                    string subsheetid = ParentStage.SelectSingleNode("./ns:subsheetid", ns).InnerText;
-                                    nome_Pagina = doc.SelectSingleNode(".//ns:process/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
-                                }
-                                catch { nome_Pagina = "Main Page"; }
+
+                                    string subsheetid = ParentStage.SelectSingleNode("./ns:subsheetid", ns)?.InnerText ?? "";
+                                    nome_Pagina = doc.SelectSingleNode(".//ns:process[@id='" + ParentProcess.Attributes["id"].Value + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns)?.SelectSingleNode("./ns:name", ns)?.InnerText ?? "Main Page";
+                                if (ParentStage.Attributes["name"].Value.Contains("Retry Limit", StringComparison.OrdinalIgnoreCase) == false && ParentStage.Attributes["name"].Value.Contains("Retry Count", StringComparison.OrdinalIgnoreCase) == false && ParentStage.Attributes["name"].Value.Contains("Stop After", StringComparison.OrdinalIgnoreCase) == false && ParentStage.Attributes["name"].Value.Contains("Queue", StringComparison.OrdinalIgnoreCase) == false) 
+                                { 
                                 numero_linha_excel += 1;
                                 excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
-                                excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:process/ns:process/@name", ns).Value);
+                                excel.Escreva_Worksheet(numero_linha_excel, "B", ParentProcess.Attributes["name"].Value);
                                 excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
-                                excel.Escreva_Worksheet(numero_linha_excel, "D", "O item: " + ParentStage.Attributes["name"].Value + " Contem HardCode com a expressão: " + expression);
+                                excel.Escreva_Worksheet(numero_linha_excel, "D", "O item: [" + ParentStage.Attributes["name"].Value + "] do tipo [" +ParentStage.Attributes["type"].Value +"] Contem HardCode com a expressão: " + expression);
+                                }
                             }
                         }
                     }
@@ -1361,15 +1375,68 @@ namespace SafeReview.Objetos_Blue_Prism
 
                         if (nome_Pagina != "Reset Global Data" && nome_Pagina != "Mark Item As Exception")
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
                         excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:process/ns:process/@name", ns).Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
                         excel.Escreva_Worksheet(numero_linha_excel, "D", "A "+ typeStagio + "( " + nomeStagio + " ) è Global e está na subpágina ( " + nome_Pagina + " ) em vez da Main Page");
                     }
                 }
             }
-        
+        }
+        public void Recovery_In_MainPage(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            /*
+             * Existe uma lógica de tratamento de exeções na Main Page para tratar todas a exceções que borbulhem até ela
+             */
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodes = doc.SelectNodes(".//ns:process/ns:process", ns);
+            int contagem_recovery = 0;
+            string process = null;
+            foreach (XmlNode Node in ListNodes)
+            {
+                XmlNodeList ListNodes2 = doc.SelectNodes(".//ns:process/ns:process/ns:stage[@type='Recover'][not(ns:subsheetid)]", ns);
+                XmlNode ParentStage = null;
+                foreach (XmlNode Node2 in ListNodes2)
+                {
+                    ParentStage = Node2;
+                    while (ParentStage != null && ParentStage.Name != "process")
+                    {
+                        ParentStage = ParentStage.SelectSingleNode("..");
+                    }
+                    ParentStage = ParentStage.SelectSingleNode("..");
+                    string processID = ParentStage.Attributes["id"].Value;
 
+                    if (processID == process)
+                    {
+                        contagem_recovery++;
+                    }
+                    else
+                    {
+                        contagem_recovery = 1;
+                        process = processID;
+
+                    }
+                }
+                if (contagem_recovery == 0)
+                {
+                    numero_linha_excel += 1;
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Main Page");
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Main Page Não contem Recover");
+                }
+                if (contagem_recovery == 1)
+                {
+                    numero_linha_excel += 1;
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
+                    excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Main Page");
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Main Page só contem 1 Recover (necessário avaliação se o processo fecha tudo em caso de TERMINATE.)");
+                }
+            } 
         }
     }
 }
