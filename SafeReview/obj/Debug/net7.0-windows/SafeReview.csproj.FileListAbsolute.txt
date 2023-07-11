@@ -84,3 +84,8 @@ C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\refint\SafeReview.
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\SafeReview.pdb
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\SafeReview.genruntimeconfig.cache
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\ref\SafeReview.dll
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Dictionary_English.baml
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Dictionary_Spanish.baml
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Page_Config.g.cs
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Page_Config.baml
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Dictionary_Portuguese_br.baml

@@ -10,6 +10,7 @@ namespace SafeReview.Objetos_Blue_Prism
 {
     class Implentation_Tracker
     {
+        
         public static void Leitura_objetos_Tracker(string Local_Release, vExcelv.Criar_Workbooks excel) //encontra os elementos de cada objeto
         {
             int numero_linha_excel = 1;
@@ -124,6 +125,23 @@ namespace SafeReview.Objetos_Blue_Prism
                         }
                     }
                 }
+            }
+        }
+        public void Leitura_process_Tracker(string Local_Release, vExcelv.Criar_Workbooks excel)
+        {
+            //não finalizado
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+            XmlNodeList ListNodesA = doc.SelectNodes(".//ns:process/ns:process/ns:stage[ns:preconditions/ns:condition]", ns);
+            XmlNodeList ListNodesB = doc.SelectNodes(".//ns:process/ns:process/ns:stage[ns:postconditions/ns:condition]", ns);
+            XmlNodeList ListNodesC = doc.SelectNodes(".//ns:process/ns:process/ns:stage[@type='SubSheetInfo']", ns);
+
+            void CheckStage(XmlNodeList ListNodes, vExcelv.Criar_Workbooks excel)
+            {
+
             }
         }
     }

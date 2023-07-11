@@ -3,6 +3,7 @@ using SafeReview;
 using SafeReview.Objetos_Blue_Prism;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
@@ -39,25 +40,29 @@ namespace Code_Inspector
         {
             if (Txt_Local_Arquivo.Text == "")
             {
-                StatusLabel.Content = "Aguardando seleção de arquivo...";
+                //StatusLabel.Content = "Aguardando seleção de arquivo...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel1");
                 Iniciar.IsEnabled= false;
                 rectangle_status.Fill = null;
             }
             else if (ComboBox_Item == "" || ComboBox_Item == null)
             {
-                StatusLabel.Content = "Aguardando seleção de Tipo de Release...";
+                //StatusLabel.Content = "Aguardando seleção de Tipo de Release...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel2"); ;
                 Iniciar.IsEnabled = false;
                 rectangle_status.Fill = null;
             }
             else if (ComboBox_Item == "Automation Anywhere" || ComboBox_Item == "UI Path")
             {
-                StatusLabel.Content = "Desculpas mas ainda não tenho suporte para esse tipo de release";
+                //StatusLabel.Content = "Desculpas mas ainda não tenho suporte para esse tipo de release";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel3");
                 Iniciar.IsEnabled = false;
                 rectangle_status.Fill = null;
             }
             else 
             {
-                StatusLabel.Content = "Pronto para iniciar...";
+                //StatusLabel.Content = "Pronto para iniciar...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel4");
                 Iniciar.IsEnabled = true;
                 rectangle_status.Fill = null;
             }
@@ -100,10 +105,12 @@ namespace Code_Inspector
             rectangle_status.Fill = null;
             progressBar.Opacity = 1;
             Iniciar.IsEnabled = false;
-            StatusLabel.Content = "Inspecionando...";
+            //StatusLabel.Content = "Inspecionando...";
+            StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel5");
             vExcelv.Criar_Workbooks excel = new vExcelv.Criar_Workbooks();
             excel.Criar_Workbook();
-            excel.Criar_Woksheet("Conferencia_Processo");
+            //excel.Criar_Woksheet("Conferencia_Processo");
+            excel.Criar_Woksheet(FindResource("WorksheetName_Conferencia_processo").ToString());
             excel.criar_cabecalho_Processo();
             try
             {

@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=netstandard"
+                    xmlns:local="clr-namespace:SafeReview">
+
+    <!-- Main Window  -->
+    <system:String x:Key="Inspect_Release">Inspect                </system:String>
+    <system:String x:Key="Dashboard">Dashboard       </system:String>
+    <system:String x:Key="Create_ODI">Create ODI          </system:String>
+    <system:String x:Key="Documents">Ref. Document        </system:String>
+    <system:String x:Key="Feedback_ideas">Feedback           </system:String>
+    <system:String x:Key="Information">Info                     </system:String>
+    <system:String x:Key="configuracoes">Setting                 </system:String>
+    <system:String x:Key="Btl_Save">Save</system:String>
+    <!-- Page Inspecionar -->
+    <system:String x:Key="inspecionar_lbl_name_selecao_arquivo">Select File ———————————————————————————————————————————-</system:String>
+    <system:String x:Key="inspecionar_lbl_Local_do_arquivo">File location</system:String>
+    <system:String x:Key="inspecionar_lbl_tipo_do_arquivo">Select the file type</system:String>
+    <system:String x:Key="inspecionar_btn_Selecionar">Select</system:String>
+    <system:String x:Key="inspecionar_lbl_estado">State —————————————————————————————————————————————</system:String>
+    <system:String x:Key="inspecionar_Btn_Iniciar">Start</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel1">Awaiting file selection...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel2">Awaiting release type selection...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel3">Apologies, but I don't have support for that type of release yet.</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel4">Ready to start..</system:String>
+
+    <!-- Este é um comentário em XAML -->
+</ResourceDictionary>

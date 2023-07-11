@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:system="clr-namespace:System;assembly=netstandard">
+    <!-- Main Window -->
+    <system:String x:Key="Inspect_Release">Inspecionar         </system:String>
+    <system:String x:Key="Dashboard">Painel               </system:String>
+    <system:String x:Key="Create_ODI">Criar ODI             </system:String>
+    <system:String x:Key="Documents">Documentos Ref.</system:String>
+    <system:String x:Key="Feedback_ideas">Feedback           </system:String>
+    <system:String x:Key="Information">Informações       </system:String>
+    <system:String x:Key="configuracoes">Configurações     </system:String>
+    <system:String x:Key="Btl_Save">Salvar</system:String>
+    <!-- Page_Inspecionar.xaml -->
+    <system:String x:Key="inspecionar_lbl_Title">Inspeção de Release</system:String>
+    <system:String x:Key="inspecionar_lbl_name_selecao_arquivo">Seleção de arquivo ———————————————————————————————————————</system:String>
+    <system:String x:Key="inspecionar_lbl_Local_do_arquivo">Local do arquivo</system:String>
+    <system:String x:Key="inspecionar_lbl_tipo_do_arquivo">Selecionar o tipo de arquivo</system:String>
+    <system:String x:Key="inspecionar_btn_Selecionar">Selecionar</system:String>
+    <system:String x:Key="inspecionar_lbl_estado">Estado —————————————————————————————————————————————</system:String>
+    <system:String x:Key="inspecionar_Btn_Iniciar">Iniciar</system:String>
+    <!-- Page_Inspecionar.xaml.cs-->
+    <system:String x:Key="inspecionar_Csharp_StatusLabel1">Aguardando seleção de arquivo...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel2">Aguardando seleção de Tipo de Release...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel3">Desculpas mas ainda não tenho suporte para esse tipo de release</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel4">Pronto para iniciar...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel5">Inspecionando...</system:String>
+    <!-- Worksheet-->
+    <system:String x:Key="WorksheetName_Conferencia_processo">Conferencia Processo</system:String>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ???? -->
+</ResourceDictionary>

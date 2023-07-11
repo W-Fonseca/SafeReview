@@ -1,6 +1,7 @@
 ﻿using Code_Inspector;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,14 +17,14 @@ using System.Windows.Shapes;
 
 namespace SafeReview
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+
             InitializeComponent();
+            string Language = ConfigurationManager.AppSettings["Language"];
+            Page_Config.SwitchLanguage(this, Language);;
         }
 
         private void Click_Mover_Janela(object sender, MouseButtonEventArgs e)
@@ -134,9 +135,6 @@ namespace SafeReview
                 }
             }
         }
-
-
-
             private void Minimize(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -241,6 +239,18 @@ namespace SafeReview
                 Main.NavigationService.RemoveBackEntry();
             }
             Main.Content = new Page_Inspecionar();
+        }
+        private void CLB_Config(object sender, MouseButtonEventArgs e)
+        {
+            if (Main.Content is Page_Config)
+            {
+                return;
+            }
+            else
+            {
+                Main.NavigationService.RemoveBackEntry();
+            }
+            Main.Content = new Page_Config();
         }
     }
 }

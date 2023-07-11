@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <!-- Main Window  -->
+    <system:String x:Key="Inspect_Release">Inspeccionar       </system:String>
+    <system:String x:Key="Dashboard"      >Panel                </system:String>
+    <system:String x:Key="Create_ODI"     >Crear ODI            </system:String>
+    <system:String x:Key="Documents"      >Documentos Ref.</system:String>
+    <system:String x:Key="Feedback_ideas" >Feedback           </system:String>
+    <system:String x:Key="Information"    >Información        </system:String>
+    <system:String x:Key="configuracoes"  >Configuración      </system:String>
+    <system:String x:Key="Btl_Save">Guardar</system:String>
+    <!-- Main Window  -->
+    <system:String x:Key="inspecionar_lbl_name_selecao_arquivo">Selección de archivos ————————————————————————————————————------</system:String>
+    <system:String x:Key="inspecionar_lbl_Local_do_arquivo">Ubicación del archivo</system:String>
+    <system:String x:Key="inspecionar_lbl_tipo_do_arquivo">Seleccione el tipo de archivo</system:String>
+    <system:String x:Key="inspecionar_btn_Selecionar">Seleccionar</system:String>
+    <system:String x:Key="inspecionar_lbl_estado">Estado —————————————————————————————————————————————</system:String>
+    <system:String x:Key="inspecionar_Btn_Iniciar">Comenzar</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel1">Aguardando selección de archivo...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel2">Aguardando selección de Tipo de Release...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel3">Disculpas, pero aún no tengo soporte para ese tipo de lanzamiento.</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel4">Pronto para iniciar...</system:String>
+
+
+
+
+
+    <!-- ??? -->
+</ResourceDictionary>

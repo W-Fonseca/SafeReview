@@ -78,7 +78,7 @@
                 <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="0.7*"/>
-                <RowDefinition/>
+                <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="0.7*"/>
                 <RowDefinition Height="0.5*" />
@@ -93,9 +93,9 @@
             <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Grafico" />
             <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="3" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_ODI" />
             <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" />
-            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5"/>
-            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_FeedBack" />
-            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Informacoes" />
+            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="5" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_FeedBack" />
+            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Informacoes" />
+            <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Config"/>
             <Rectangle Fill="Black" Opacity="0.6" SnapsToDevicePixels="True" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="8" Margin="0,0,0,6"/>
 
             <Viewbox Grid.Column="5" Grid.Row="0">
@@ -117,7 +117,7 @@
             <Label Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Powered By Symphony" FontSize="5" FontFamily="Gilroy Bold" Grid.Row="0" Grid.Column="2" Margin="18,23,12,-1.7"/>
             </Viewbox>
             <Viewbox Grid.Column="1" Grid.Row="1" Opacity="0.6" MouseLeftButtonDown="CLB_Inspecionar" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="1" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-inseto-100.png" MouseLeftButtonDown="CLB_Inspecionar" RenderTransformOrigin="0.5,0.5" Margin="-25,-25,-25,-25" >
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="1" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/icons8-bug-100.png" MouseLeftButtonDown="CLB_Inspecionar" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21" >
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -129,7 +129,7 @@
             </Image>
             </Viewbox>
             <Viewbox Grid.Column="1" Grid.Row="2" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-gravidade-100.png"  MouseLeftButtonDown="CLB_Grafico" RenderTransformOrigin="0.5,0.5" Margin="-24,-24,-24,-24" >
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="Assets/icons8-combo-chart-100.png"  MouseLeftButtonDown="CLB_Grafico" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21" >
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -141,7 +141,7 @@
                 </Image>
             </Viewbox>
             <Viewbox Grid.Column="1" Grid.Row="3" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="3" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-vamos-para-100.png" MouseLeftButtonDown="CLB_ODI" RenderTransformOrigin="0.5,0.5" Margin="-19,-19,-19,-19">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="3" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/icons8-genealogy-100.png" MouseLeftButtonDown="CLB_ODI" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -153,7 +153,7 @@
                 </Image>
             </Viewbox>
             <Viewbox Grid.Column="1" Grid.Row="4" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="4" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-diário-de-bordo-100.png"  MouseLeftButtonDown="CLB_Documentacao" RenderTransformOrigin="0.5,0.5" Margin="-18,-18,-18,-18">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="4" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-diário-de-bordo-100.png"  MouseLeftButtonDown="CLB_Documentacao" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -164,8 +164,8 @@
                     </Image.RenderTransform>
                 </Image>
             </Viewbox>
-            <Viewbox Grid.Column="1" Grid.Row="6" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-macbook-idea-100.png"  MouseLeftButtonDown="CLB_FeedBack" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
+            <Viewbox Grid.Column="1" Grid.Row="5" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="5" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/icons8-idea-100.png"  MouseLeftButtonDown="CLB_FeedBack" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -177,46 +177,46 @@
                 </Image>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="1" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Inspecionar" Opacity="0.6">
-                <Label Content="Inspect Release" FontSize="14" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Inspecionar" FontFamily="Gilroy ☞" Padding="0,0,0,0" Margin="-3,-3,3,-3">
+                <Label Content="{DynamicResource Inspect_Release}" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Inspecionar">
                     <Label.ToolTip>
                         <ToolTip Content="Inspeciona uma release"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
-            <Viewbox Grid.Column="2" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Opacity="0.6">
-                <Label Content="Dashboard" FontFamily="Gilroy ☞" FontSize="14" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Grafico" Margin="-8,0,9,0">
+            <Viewbox Grid.Column="2" Grid.Row="2" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Grafico" Opacity="0.6">
+                <Label Content="{DynamicResource Dashboard}" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Grafico" >
                     <Label.ToolTip>
                         <ToolTip Content="Gera um grafico sobre a release"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="3" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_ODI" Opacity="0.6">
-                <Label Content="Create ODI" FontFamily="Gilroy ☞" FontSize="14" Grid.Row="3" Grid.Column="2" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_ODI" Margin="-8,-1,24,-1">
+                <Label Content="{DynamicResource Create_ODI}" FontFamily="Gilroy ☞" FontSize="14" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_ODI">
                     <Label.ToolTip>
                         <ToolTip Content="Gera Instrução de Design de Objeto"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="4" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" Opacity="0.6">
-                <Label Content="Ref. Doc." FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="4" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao" Margin="-8,-1,21,-1">
+                <Label Content="{DynamicResource Documents}" FontFamily="Gilroy ☞" FontSize="14" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Documentacao">
                     <Label.ToolTip>
                         <ToolTip Content="Documentação sobre melhores práticas"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
-            <Viewbox Grid.Column="2" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_FeedBack" Opacity="0.6">
-                <Label  Content="Feedback"  MouseLeftButtonDown="CLB_FeedBack" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="6" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Margin="-8,-1,32,-1" >
+            <Viewbox Grid.Column="2" Grid.Row="5" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_FeedBack" Opacity="0.6">
+                <Label  Content="{DynamicResource Feedback_ideas}" FontFamily="Gilroy ☞" FontSize="14" Foreground="White" Grid.Column="2" MouseLeftButtonDown="CLB_FeedBack" HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
                     <Label.ToolTip>
                         <ToolTip Content="Envie seu feedback ou ideia"/>
                     </Label.ToolTip>
                 </Label>
             </Viewbox>
 
-            <Viewbox Grid.Column="2" Grid.Row="7" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Informacoes" Opacity="0.6">
-                <Label Content="About" FontFamily="Gilroy ☞" FontSize="14" Grid.Column="2" Grid.Row="7" Foreground="White" HorizontalAlignment="left" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Informacoes" Margin="-7,-1,56,-1"/>
+            <Viewbox Grid.Column="2" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Informacoes" Opacity="0.6">
+                <Label Content="{DynamicResource Information}" FontFamily="Gilroy ☞" FontSize="14" Foreground="White" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Informacoes" />
             </Viewbox>
-            <Viewbox Grid.Column="1" Grid.Row="7" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
-                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="7" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/Assets/icons8-macbook-chat-100.png" MouseLeftButtonDown="CLB_Informacoes" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
+            <Viewbox Grid.Column="1" Grid.Row="6" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/icons8-info-100.png" MouseLeftButtonDown="CLB_Informacoes" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
@@ -226,9 +226,22 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-
             </Viewbox>
-            
+            <Viewbox Grid.Column="2" Grid.Row="7" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Config" Opacity="0.6">
+                <Label Content="{DynamicResource configuracoes}" FontFamily="Gilroy ☞" FontSize="14" Foreground="White" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"  MouseLeftButtonDown="CLB_Config" />
+            </Viewbox>
+            <Viewbox Grid.Column="1" Grid.Row="7" Opacity="0.6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" MouseLeftButtonDown="CLB_Config">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="6" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Source="/icons8-config-100.png" MouseLeftButtonDown="CLB_Config" RenderTransformOrigin="0.5,0.5" Margin="-21,-21,-21,-21">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Viewbox>
 
             <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.Column="5" Grid.Row="1" Grid.RowSpan="7" RenderTransformOrigin="0.5,0.5">
                 <Frame.RenderTransform>
