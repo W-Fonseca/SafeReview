@@ -21,34 +21,34 @@ namespace SafeReview.Objetos_Blue_Prism
     {
         int numero_linha_excel = 1;
 
-        public static void Leitura_objetos(string Local_Release, vExcelv.Criar_Workbooks excel) //encontra os elementos de cada objeto
+        public static void Leitura_objetos(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual) //encontra os elementos de cada objeto
         {
 
             leitura_blue_prism_object programa_objeto = new leitura_blue_prism_object();
-            excel.Criar_Woksheet("Conferencia_Objetos");
+            excel.Criar_Woksheet(MainWindow.dictionary["criar_cabecalho_Objetos_title"].ToString());
             excel.criar_cabecalho_Objetos();
             
-            programa_objeto.Check_element_and_Attributes(Local_Release, excel);
-            programa_objeto.Check_Publish(Local_Release, excel);
-            programa_objeto.Count_Page(Local_Release, excel);
-            programa_objeto.Check_wait_time(Local_Release, excel);
-            programa_objeto.Check_All_Exception(Local_Release, excel);
-            programa_objeto.Preconditions_PostConditions(Local_Release, excel);
-            programa_objeto.Check_Narrative(Local_Release, excel);
-            programa_objeto.Count_Stages_InPage(Local_Release, excel);
-            programa_objeto.Check_Contais_Stage_InPage(Local_Release, excel);
-            programa_objeto.Tamanho_blocos(Local_Release, excel);
-            programa_objeto.Color_Block(Local_Release, excel);
-            programa_objeto.Identif_Subsheets_And_Actions(Local_Release, excel);
-            programa_objeto.Search_Attach(Local_Release, excel);
-            programa_objeto.Check_Exceptions(Local_Release, excel);
-            programa_objeto.Check_Environment(Local_Release, excel);
-            programa_objeto.CheckAllHardCodeProcess(Local_Release, excel);
-            programa_objeto.Check_SendkeysAndMouseClick(Local_Release, excel);
+            programa_objeto.Check_element_and_Attributes(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_Publish(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Count_Page(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_wait_time(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_All_Exception(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Preconditions_PostConditions(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_Narrative(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Count_Stages_InPage(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_Contais_Stage_InPage(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Tamanho_blocos(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Color_Block(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Identif_Subsheets_And_Actions(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Search_Attach(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_Exceptions(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_Environment(Local_Release, excel, DictionaryAtual);
+            programa_objeto.CheckAllHardCodeProcess(Local_Release, excel, DictionaryAtual);
+            programa_objeto.Check_SendkeysAndMouseClick(Local_Release, excel, DictionaryAtual);
 
         }
 
-        public void Check_element_and_Attributes(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_element_and_Attributes(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -67,12 +67,12 @@ namespace SafeReview.Objetos_Blue_Prism
                     {
                         ParentStage = ParentStage.SelectSingleNode("..");
                     }
-
+                    
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
                     excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "tipo de elemento com descrição errada ou sem hífens com espaçamento entre ele");
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_element_and_Attributes_case1"].ToString());
                 }
 
                 XmlNodeList attributes = element.SelectNodes("./ns:attributes/ns:attribute", ns);
@@ -89,7 +89,7 @@ namespace SafeReview.Objetos_Blue_Prism
                             ParentStage = ParentStage.SelectSingleNode("..");
                         }
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "D", "ScreenVisible = True");
@@ -106,7 +106,7 @@ namespace SafeReview.Objetos_Blue_Prism
                             ParentStage = ParentStage.SelectSingleNode("..");
                         }
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", "Elemento: " + element.Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "D", "Visible = True");
@@ -115,7 +115,7 @@ namespace SafeReview.Objetos_Blue_Prism
                 }
             }
         }
-        public void Check_Publish(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_Publish(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -126,14 +126,14 @@ namespace SafeReview.Objetos_Blue_Prism
             foreach (XmlNode Node in Nodes)
             {
                 numero_linha_excel += 1;
-                excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                 excel.Escreva_Worksheet(numero_linha_excel, "B", Node.SelectSingleNode("..").Attributes["name"].Value);
-                excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Node.SelectSingleNode("./ns:name", ns).InnerText);
+                excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Node.SelectSingleNode("./ns:name", ns).InnerText);
                 excel.Escreva_Worksheet(numero_linha_excel, "D", "Published: " + Node.Attributes["published"].Value);
             }
         }
 
-        public void Check_Contais_Stage_InPage(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_Contais_Stage_InPage(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Os objetos não tentam recuperar exceções (deve ser lógica de processo)
@@ -156,44 +156,44 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Exception'][ns:subsheetid='" + subsheetid + "']", ns) == null)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Alerta"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "A página não contem exception");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Contais_Stage_InPage_case1"].ToString()+" 'Exception'");
                 }
 
                 if (doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='WaitStart'][ns:subsheetid='" + subsheetid + "']", ns) == null)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Alerta"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "A página Não contem Wait");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Contais_Stage_InPage_case1"].ToString() + " 'Wait'");
                 }
 
                 if (doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Recover'][ns:subsheetid='" + subsheetid + "']", ns) != null)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "A página contem Recover");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Contais_Stage_InPage_case2"].ToString()+ " 'Recover'");
                 }
 
                 if (doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Resume'][ns:subsheetid='" + subsheetid + "']", ns) != null)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "A página contem Resume");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Contais_Stage_InPage_case2"].ToString() +" 'Resume");
                 }
 
 
                 // XmlNodeList Stages = doc.SelectNodes(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[ns:subsheetid='" + subsheetid + "']/@type='Exception'", ns);
             }
         }
-        public void Count_Page(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Count_Page(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -217,11 +217,12 @@ namespace SafeReview.Objetos_Blue_Prism
                 {
                     if (count_page > 15)
                     {
+                        
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Alerta");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Alerta"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", Node.SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Objeto");
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Objeto com numero excessivo de páginas, o maximo é 15, quantidade criada é: " + count_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Object");
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Count_Page_case1"].ToString() + " "+ count_page);
                     }
                     name_process = Node.SelectSingleNode("..").Attributes["name"].Value;
                     count_page = 1;
@@ -229,7 +230,7 @@ namespace SafeReview.Objetos_Blue_Prism
             }
         }
 
-        public void Count_Stages_InPage(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Count_Stages_InPage(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -255,15 +256,16 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (contagem_stagios > 15)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Pagina contem um total de " + contagem_stagios + " estágios, o maximo permitido é 15");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Count_Stages_InPage_Initialfrase"].ToString() + " " + contagem_stagios + " "+ DictionaryAtual["Count_Stages_InPage_finalyfrase"].ToString());
                 }
             }
+            
         }
 
-        public void Check_wait_time(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_wait_time(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Os timeouts utilizados nas condições dos waits estão definidas com variáveis globais alocadas na action Initilize do BO, sendo no mínimo: Global Timeout - S | Global Timeout - M | Global Timeout - L, junto com as demais variáveis globais
@@ -291,10 +293,10 @@ namespace SafeReview.Objetos_Blue_Prism
                         string nome_Pagina = doc.SelectSingleNode(".//ns:object/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
 
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", timeout.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + nome_Pagina);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "timeout: " + timeout.SelectSingleNode("..").Attributes["name"].Value + " com valor fixo de: " + timeout.InnerText);
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + nome_Pagina);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "timeout: " + timeout.SelectSingleNode("..").Attributes["name"].Value + " "+ DictionaryAtual["Check_wait_time_case1"].ToString() + " " + timeout.InnerText);
                     }
                 }
                 else
@@ -303,15 +305,15 @@ namespace SafeReview.Objetos_Blue_Prism
                     string nome_Pagina = doc.SelectSingleNode(".//ns:object/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
 
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", timeout.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + nome_Pagina);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "timeout: " + timeout.SelectSingleNode("..").Attributes["name"].Value + " com valor fixo de: " + timeout.InnerText);
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + nome_Pagina);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "timeout: " + timeout.SelectSingleNode("..").Attributes["name"].Value + " "+ DictionaryAtual["Check_wait_time_case1"].ToString() + " " + timeout.InnerText);
 
                 }
             }
         }
-        public void Check_All_Exception(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_All_Exception(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -329,14 +331,14 @@ namespace SafeReview.Objetos_Blue_Prism
                     string subsheetid = node.SelectSingleNode("./ns:subsheetid", ns).InnerText;
                     string nome_Pagina = doc.SelectSingleNode(".//ns:object/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns).SelectSingleNode("./ns:name", ns).InnerText;
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + nome_Pagina);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception com: " + Exception.Attributes["type"].Value + " o correto é: 'System Exception' ou 'Business Exception'");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + nome_Pagina);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Exception "+ DictionaryAtual["Check_All_Exception_initialfrase"].ToString() + ": " + Exception.Attributes["type"].Value +" "+ DictionaryAtual["Check_All_Exception_finalyfrase"].ToString());
                 }
             }
         }
-        public void Preconditions_PostConditions(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Preconditions_PostConditions(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(Local_Release);
@@ -359,19 +361,19 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (precondition_narrative == "" || precondition_narrative == null)
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe descrição preconditions na página");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["precondition_postcondition_precondition"].ToString());
                     }
                 }
                 catch
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe descrição preconditions na página");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["precondition_postcondition_precondition"].ToString());
                 }
                 try
                 {
@@ -381,23 +383,23 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (postconditions_narrative == "" || postconditions_narrative == null)
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe descrição postconditions na página");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["precondition_postcondition_postconditions"].ToString());
                     }
                 }
                 catch
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe descrição postconditions na página");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["precondition_postcondition_postconditions"].ToString());
                 }
             }
         }
-        public void Check_Narrative(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_Narrative(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * O campo de descrição de cada página está preenchido com o resumo do que nela será executado
@@ -413,14 +415,14 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (node.InnerText == "")
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe narrativa na página.");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + node.SelectSingleNode("..").Attributes["name"].Value);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Narrative_case1"].ToString());
                 }
             }
         }
-        public void Tamanho_blocos(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Tamanho_blocos(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Itens/Collections devem ter 2 blocos de altura e 8 blocos de largura. 
@@ -446,17 +448,17 @@ namespace SafeReview.Objetos_Blue_Prism
                         if (currentw != 90 && currenth != 60)
                         {
                             numero_linha_excel += 1;
-                            excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                            excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                             excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
                             excel.Escreva_Worksheet(numero_linha_excel, "C", "Data Item: " + stage.Attributes["name"].Value);
-                            excel.Escreva_Worksheet(numero_linha_excel, "D", stage.Attributes["type"].Value + " Name: '" + stage.Attributes["name"].Value + "' fora do padrão, devem ter 2 blocos de altura e 8 blocos de largura.");
+                            excel.Escreva_Worksheet(numero_linha_excel, "D", stage.Attributes["type"].Value + " Name: '" + stage.Attributes["name"].Value + "' "+ DictionaryAtual["obj_Tamanho_blocos_case1"].ToString());
                         }
                     }
                     catch { }
                 }
             }
         }
-        public void Color_Block(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Color_Block(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * O bloco 'Input' tem a cor de fundo #0000FF
@@ -482,10 +484,10 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "ED7D31")
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Global' deve ser '0000FF'");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Color_Block_MainPage_case1"].ToString()+" '" + stage.Attributes["name"].Value + "' = 'Global' " +DictionaryAtual["Color_Block_MainPage_case2"].ToString()+ " 'ED7D31'");
                     }
                 }
 
@@ -495,10 +497,10 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "0000FF")
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Input' deve ser '0000FF'");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Color_Block_MainPage_case1"].ToString()+" '" + stage.Attributes["name"].Value + "' = 'Input' "+ DictionaryAtual["Color_Block_MainPage_case2"].ToString() +" '0000FF'");
                     }
                 }
 
@@ -509,10 +511,10 @@ namespace SafeReview.Objetos_Blue_Prism
                     {
 
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Local' deve ser '008000'");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Color_Block_MainPage_case1"].ToString() + " '" + stage.Attributes["name"].Value + "' = 'Local' " + DictionaryAtual["Color_Block_MainPage_case2"].ToString() + " '008000'");
                     }
                 }
 
@@ -522,15 +524,15 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (stage.SelectSingleNode("./ns:font/@color", ns).Value != "00CCFF")
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Notificação");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", stage.SelectSingleNode("..").Attributes["name"].Value);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Cor do bloco '" + stage.Attributes["name"].Value + "' = 'Output' deve ser '00CCFF'");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Color_Block_MainPage_case1"].ToString() + " '" + stage.Attributes["name"].Value + "' = 'Output' " + DictionaryAtual["Color_Block_MainPage_case2"].ToString() + " '00CCFF'");
                     }
                 }
             }
         }
-        public void Identif_Subsheets_And_Actions(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Identif_Subsheets_And_Actions(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Nenhum objeto contém uma ação que chame uma action do próprio objeto, exceto attach e dettach nem de qualquer outro objeto
@@ -550,10 +552,10 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (node.Attributes["name"].Value.Contains("Attach", StringComparison.OrdinalIgnoreCase) == false && node.Attributes["name"].Value.Contains("Dettach", StringComparison.OrdinalIgnoreCase) == false)
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma mensão a outra página com nome: '" + node.Attributes["name"].Value + "' sendo utilizada na página.");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Identif_Subsheets_And_Actions_case1_initialfrase"].ToString()+" '" + node.Attributes["name"].Value +"' " +DictionaryAtual["Identif_Subsheets_And_Actions_case1_finalyfrase"].ToString());
                 }
             }
             XmlNodeList Nodes2 = doc.SelectNodes(".//ns:object/ns:process/ns:stage[@type='Action']", ns);
@@ -563,13 +565,13 @@ namespace SafeReview.Objetos_Blue_Prism
                 string subsheetid = node.SelectSingleNode("./ns:subsheetid", ns).InnerText;
                 string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
                 numero_linha_excel += 1;
-                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                 excel.Escreva_Worksheet(numero_linha_excel, "B", node.SelectSingleNode("..").Attributes["name"].Value);
-                excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + Name_page);
-                excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma action com nome: '" + node.Attributes["name"].Value + "' sendo utilizada na página.");
+                excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + Name_page);
+                excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Identif_Subsheets_And_Actions_case2_initialfrase"].ToString() + " '" + node.Attributes["name"].Value + "' " + DictionaryAtual["Identif_Subsheets_And_Actions_case1_finalyfrase"].ToString());
             }
         }
-        public void Search_Attach(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Search_Attach(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * O Business Object tem uma ação 'Attach' que lê o status conectado antes de ser executada
@@ -608,10 +610,10 @@ namespace SafeReview.Objetos_Blue_Prism
                 if (CheckAttach == null && namepage != "Clean Up")
                 {
                     numero_linha_excel += 1;
-                    excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                    excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                     excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
-                    excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
-                    excel.Escreva_Worksheet(numero_linha_excel, "D", "Não existe attach nessa página");
+                    excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + namepage);
+                    excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Search_Attach_case1"].ToString());
                 }
                 else if (CheckAttach != null && namepage != "Clean Up" && Pageattach == false)
                 {
@@ -621,10 +623,10 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (processID != SubsheetIDAttach)
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
-                        excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Item depois do Start não é Attach");
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + namepage);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Search_Attach_case2"].ToString());
                     }
                     if (WaitOnsucess != null) // <-- Todas as Actions do Business Object começam com o stage Wait após o attach para verificar se o aplicativo está na tela correta
                     {
@@ -633,16 +635,16 @@ namespace SafeReview.Objetos_Blue_Prism
                         if (WaitCheck != "WaitStart")
                         {
                             numero_linha_excel += 1;
-                            excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                            excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                             excel.Escreva_Worksheet(numero_linha_excel, "B", objectname);
-                            excel.Escreva_Worksheet(numero_linha_excel, "C", "Ação: " + namepage);
-                            excel.Escreva_Worksheet(numero_linha_excel, "D", "Falta Wait depois do Attach");
+                            excel.Escreva_Worksheet(numero_linha_excel, "C", DictionaryAtual["leitura_blue_prism_object_acao"].ToString() + namepage);
+                            excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Search_Attach_case3"].ToString());
                         }
                     }
                 }
             }
         }
-        public void Check_Exceptions(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_Exceptions(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
             * As exceções possuem "Name" e "Type" iguais
@@ -673,10 +675,10 @@ namespace SafeReview.Objetos_Blue_Prism
                     if (ExceptionDetails.ContainsKey(nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value))
                     {
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", Node.SelectSingleNode("..").Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Na pagina '" + nome_Pagina + "' Foi encontrado o Exception [" + nome_stage + "] igual dá " + ExceptionDetails[nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value]);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Exceptions_initialfrase"].ToString() + nome_Pagina + DictionaryAtual["Check_Exceptions_middlefrase"].ToString() + nome_stage + DictionaryAtual["Check_Exceptions_finalyfrase"].ToString() + ExceptionDetails[nome_stage + " - " + Node.SelectSingleNode("./ns:exception/@type", ns).Value + " - " + Node.SelectSingleNode("./ns:exception/@detail", ns).Value]);
                     }
                     else
                     {
@@ -685,7 +687,7 @@ namespace SafeReview.Objetos_Blue_Prism
                 }
             }
         }
-        public void Check_Environment(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_Environment(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Nenhuma variável de ambiente está sendo chamada pelo objeto (devem ser chamadas pelo processo)
@@ -709,14 +711,14 @@ namespace SafeReview.Objetos_Blue_Prism
                 string Name_page = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']/ns:name", ns)?.InnerText ?? "Main Page";
 
                 numero_linha_excel += 1;
-                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                 excel.Escreva_Worksheet(numero_linha_excel, "B", ParentStage.Attributes["name"].Value);
                 excel.Escreva_Worksheet(numero_linha_excel, "C", Name_page);
-                excel.Escreva_Worksheet(numero_linha_excel, "D", "Existe uma variavel de ambiente no stage: " + Node.Attributes["name"].Value);
+                excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_Environment_case1"].ToString() + Node.Attributes["name"].Value);
 
             }
         }
-        public void CheckAllHardCodeProcess(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void CheckAllHardCodeProcess(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Nenhum Data Item/Collection/Stage contém informações codificada diretamente neles que poderiam mudar com o tempo/circunstâncias 
@@ -778,10 +780,10 @@ namespace SafeReview.Objetos_Blue_Prism
                                 if(nome_Pagina != "Main Page")
                                 { 
                                 numero_linha_excel += 1;
-                                excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                                excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                                 excel.Escreva_Worksheet(numero_linha_excel, "B", doc.SelectSingleNode(".//ns:object[@id='" + ParentObject.Attributes["id"].Value +"']/@name", ns).Value);
                                 excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
-                                excel.Escreva_Worksheet(numero_linha_excel, "D", "O item: " + ParentStage.Attributes["name"].Value + " Contem HardCode com a expressão: " + expression);
+                                excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["CheckAllHardCodeProcess_initialfrase"].ToString() + ParentStage.Attributes["name"].Value + DictionaryAtual["CheckAllHardCodeProcess_finalyfrase"].ToString() + expression);
                                 }
                             }
                         }
@@ -789,7 +791,7 @@ namespace SafeReview.Objetos_Blue_Prism
                 }
             }
         }
-        public void Check_SendkeysAndMouseClick(string Local_Release, vExcelv.Criar_Workbooks excel)
+        public void Check_SendkeysAndMouseClick(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
             /*
              * Todos os objetos tem o modo de execução de segundo plano, a menos que incluam cliques globais ou motivos que possam exigir o uso em primeiro plano.
@@ -820,10 +822,10 @@ namespace SafeReview.Objetos_Blue_Prism
                         string nome_Pagina = doc.SelectSingleNode(".//ns:object[@id='" + ParentObject.Attributes["id"].Value + "']/ns:process/ns:subsheet[@subsheetid='" + subsheetid + "']", ns)?.SelectSingleNode("./ns:name", ns)?.InnerText ?? "Main Page";
 
                         numero_linha_excel += 1;
-                        excel.Escreva_Worksheet(numero_linha_excel, "A", "Erro");
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
                         excel.Escreva_Worksheet(numero_linha_excel, "B", ParentObject.Attributes["name"].Value);
                         excel.Escreva_Worksheet(numero_linha_excel, "C", nome_Pagina);
-                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Stagio ["+ stage.Attributes["name"].Value + "] sem Activate Application ou Focus");
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["Check_SendkeysAndMouseClick_initialfrase"].ToString() + stage.Attributes["name"].Value + DictionaryAtual["Check_SendkeysAndMouseClick_finalyfrase"].ToString());
                     }
                 }
             }

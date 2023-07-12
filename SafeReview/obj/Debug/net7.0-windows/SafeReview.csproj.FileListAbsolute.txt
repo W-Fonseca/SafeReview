@@ -89,3 +89,4 @@ C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Dictionary_Spanish
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Page_Config.g.cs
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Page_Config.baml
 C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Dictionary_Portuguese_br.baml
+C:\GitHub\SafeReview-main\SafeReview\obj\Debug\net7.0-windows\Objetos_Blue_Prism\Dictionary_BP.baml

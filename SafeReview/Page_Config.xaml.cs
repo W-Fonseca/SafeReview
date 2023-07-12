@@ -23,7 +23,7 @@ namespace SafeReview
     /// </summary>
     public partial class Page_Config : Page
     {
-        string Language_select;
+
         public Page_Config()
         {
             InitializeComponent();
@@ -35,7 +35,6 @@ namespace SafeReview
             if (selectedItem != null)
             {
                 string valor_selecionado = selectedItem.Content.ToString();
-                Language_select = valor_selecionado;
                 SwitchLanguage((Window.GetWindow(comboBox)), valor_selecionado);
             }
         }
@@ -48,21 +47,31 @@ namespace SafeReview
                 case "English":
                     dictionary.Source = new Uri("..\\Dictionary_English.xaml", UriKind.Relative);
                     App.Languagem_Subpages("Dictionary_English.xaml");
+                    MainWindow.language = "English";
                     break;
                 case "Spanish":
                     dictionary.Source = new Uri("..\\Dictionary_Spanish.xaml", UriKind.Relative);
                     App.Languagem_Subpages("Dictionary_Spanish.xaml");
+                    MainWindow.language = "Spanish";
                     break;
                 case "Portuguese (Brasil)":
                     dictionary.Source = new Uri("..\\Dictionary_Portuguese_br.xaml", UriKind.Relative);
                     App.Languagem_Subpages("Dictionary_Portuguese_br.xaml");
+                    MainWindow.language = "Portuguese (Brasil)";
                     break;
                 default:
                     dictionary.Source = new Uri("..\\Dictionary_English.xaml", UriKind.Relative);
                     App.Languagem_Subpages("Dictionary_English.xaml");
+                    MainWindow.language = "English";
                     break;
             }
             window.Resources.MergedDictionaries.Add(dictionary);
+            MainWindow.dictionary = dictionary;
+
+
+
+
+
         }
 
         private void Press_Save(object sender, RoutedEventArgs e)
@@ -79,7 +88,7 @@ namespace SafeReview
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
             // Adiciona uma configuração personalizada
-            config.AppSettings.Settings.Add("Language", Language_select);
+            config.AppSettings.Settings.Add("Language", MainWindow.language);
 
             // Salva as alterações no arquivo de configuração
             config.Save(ConfigurationSaveMode.Modified);

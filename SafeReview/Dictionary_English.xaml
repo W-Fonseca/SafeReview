@@ -11,7 +11,9 @@
     <system:String x:Key="Feedback_ideas">Feedback           </system:String>
     <system:String x:Key="Information">Info                     </system:String>
     <system:String x:Key="configuracoes">Setting                 </system:String>
+    <!-- Page_Config.xaml-->
     <system:String x:Key="Btl_Save">Save</system:String>
+    <system:String x:Key="lbl_config_language">Language ———————————————————————————————————————————————</system:String>
     <!-- Page Inspecionar -->
     <system:String x:Key="inspecionar_lbl_name_selecao_arquivo">Select File ———————————————————————————————————————————-</system:String>
     <system:String x:Key="inspecionar_lbl_Local_do_arquivo">File location</system:String>
@@ -19,10 +21,115 @@
     <system:String x:Key="inspecionar_btn_Selecionar">Select</system:String>
     <system:String x:Key="inspecionar_lbl_estado">State —————————————————————————————————————————————</system:String>
     <system:String x:Key="inspecionar_Btn_Iniciar">Start</system:String>
-    <system:String x:Key="inspecionar_Csharp_StatusLabel1">Awaiting file selection...</system:String>
-    <system:String x:Key="inspecionar_Csharp_StatusLabel2">Awaiting release type selection...</system:String>
-    <system:String x:Key="inspecionar_Csharp_StatusLabel3">Apologies, but I don't have support for that type of release yet.</system:String>
-    <system:String x:Key="inspecionar_Csharp_StatusLabel4">Ready to start..</system:String>
+    <!-- Page_Inspecionar.xaml.cs  && Page_ODI.xaml.cs -->
+    <system:String x:Key="inspecionar_Csharp_StatusLabel1">Waiting for file selection...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel2">Waiting for Release type selection...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel3">Sorry, but I don't have support for this type of release yet</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel4">Ready to start...</system:String>
+    <!-- Page_Inspecionar.xaml.cs-->
+    <system:String x:Key="inspecionar_Csharp_StatusLabel5">Inspecting...</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel6">Inspection Complete</system:String>
+    <system:String x:Key="inspecionar_Csharp_StatusLabel7">Error in Inspection, file with error or corrupted</system:String>
+    <!-- Page_ODI.xaml-->
+    <system:String x:Key="ODI_lbl_Title">Generate ODI</system:String>
+    <!-- Page_ODI.xaml.cs -->
+    <system:String x:Key="ODI_Csharp_StatusLabel1">Creating ODI...</system:String>
+    <system:String x:Key="ODI_Csharp_StatusLabel2">ODI Complete</system:String>
+    <system:String x:Key="ODI_Csharp_StatusLabel3">Error generating ODI, file with error or corrupted</system:String>
+    <!-- Worksheet-->
+    <system:String x:Key="WorksheetName_Conferencia_processo">Process Conference</system:String>
+    <!-- Page_Informacoes.xaml -->
+    <system:String x:Key="Informacoes_txtB_informacoes">There are several reasons why it is important to adopt good practices for building objects and processes. Some of these reasons include:
+1. Better efficiency: Adopting good practices can help improve the efficiency of the automated processes. This means they can be executed more quickly and with fewer errors.
+2. Increased accuracy: When good practices are followed, processes are more likely to be executed with greater accuracy and consistency. This can lead to more reliable and accurate results.\r\n\r\n
+3. Less maintenance: If objects and processes are built with good practices in mind, they may require less maintenance and error correction. This can save time and money in the long run.\r\n\r\n
+4. Ease of maintenance: When objects and processes are built according to good practices, they can be easier to maintain and update. \r\nThis is important to ensure that automated processes continue to function properly as business needs change.\r\n\r\n
 
-    <!-- Este é um comentário em XAML -->
+Regulatory compliance: Some good practices are necessary to ensure regulatory compliance. This is particularly important in highly regulated sectors such as finance and healthcare.\r\n\r\n
+Increased reusability: When objects and processes are built with good practices in mind, they can be easier to reuse in other projects. This can save time and effort in developing new processes.\r\n\r\n
+In summary, adopting good practices for building objects and processes can make them more efficient, accurate, easy to maintain, and compliant with regulations. This can result in time and money savings and increased reusability.
+    </system:String>
+    <!-- Leitura_blue_prism_process.cs -->
+    <system:String x:Key="conferencia_paginas_comuns_Notificacao">Notification</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_Erro">Error</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_Alerta">Alert</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_excel1">Main page without description</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_excel2">Main page without</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_excel_exception">with different marking than 'System Exception' or 'Business Exception'</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_excel_3">Stage without description</system:String>
+    <system:String x:Key="conferencia_paginas_comuns_excel_4">Main page without 'Resume' after 'recovery'</system:String>
+    <system:String x:Key="precondition_postcondition_precondition">"There is no 'preconditions' description on the page"</system:String>
+    <system:String x:Key="precondition_postcondition_postconditions">"There is no 'postconditions' description on the page"</system:String>
+    <system:String x:Key="Tamanho_blocos_tamanho1">Items/Collections should have 2 blocks in height and 8 blocks in width.</system:String>
+    <system:String x:Key="NomeProcessPadrao_Case1">"Process Name does not start with P (process) + process number (should contain 3 digits)."</system:String>
+    <system:String x:Key="NomeProcessPadrao_Case2">"Process Name does not specify the UC (use case) Ex: P189_UC_ProcessName (should contain 3 digits)."</system:String>
+    <system:String x:Key="NomeProcessPadrao_Case3">"Process name example P189_UC_ProcessName not found."</system:String>
+    <system:String x:Key="OrderPages_initialfrase">Page order with different execution order, correct order [</system:String>
+    <system:String x:Key="OrderPages_finalyfrase">] should come after the other pages.</system:String>
+    <system:String x:Key="Color_Block_MainPage_case1">Block color</system:String>
+    <system:String x:Key="Color_Block_MainPage_case2">should be</system:String>
+    <system:String x:Key="Color_Block_MainPage_case3">Process out of pattern, does not contain a block</system:String>
+    <system:String x:Key="Contais_Kill_or_Close_case1">Process does not contain Kill process in Close Down or End Process page</system:String>
+    <system:String x:Key="Check_Stop_Mainpage_case1">Process does not contain Stop between item executions</system:String>
+    <system:String x:Key="E_mail_in_End_Process_case1">Page contains send email but is not a Close or End Process page</system:String>
+    <system:String x:Key="E_mail_in_End_Process_case2">No send email using 'Email - POP3/SMTP' was found in the process.</system:String>
+    <system:String x:Key="CheckPasswords_initialfrase">Stage</system:String>
+    <system:String x:Key="CheckPasswords_finalyfrase">receives a password and is not encoded.</system:String>
+    <system:String x:Key="ContStageInPage_initialfrase">Page contains</system:String>
+    <system:String x:Key="ContStageInPage_finalyfrase">Allowed limit is up to 35 actions</system:String>
+    <system:String x:Key="check_dataItem_case_initialfrase">The data Item / Collection: '</system:String>
+    <system:String x:Key="check_dataItem_case_finalyfrase">' contains the pre-established initial value</system:String>
+    <system:String x:Key="Check_Exceptions_case1">' is not 'System Exception' or 'Business Exception' or is preserved.</system:String>
+    <system:String x:Key="Check_Exceptions_case2_initialfrase">On page '</system:String>
+    <system:String x:Key="Check_Exceptions_case2_middlefrase">' Exception [</system:String>
+    <system:String x:Key="Check_Exceptions_case2_finalyfrase">"] found instead of</system:String>
+    <system:String x:Key="Check_work_queue_name_case1_initialfrase">Process Name (</system:String>
+    <system:String x:Key="Check_work_queue_name_case1_middlefrase">) and Work Queue (</system:String>
+    <system:String x:Key="Check_work_queue_name_case1_finalyfrase">) are different!</system:String>
+    <system:String x:Key="Check_work_queue_name_case2">Unable to identify a work queue in the release</system:String>
+    <system:String x:Key="CheckAllHardCodeProcess_case1_initialfrase">Item: [</system:String>
+    <system:String x:Key="CheckAllHardCodeProcess_case1_middlefrase">] of type [</system:String>
+    <system:String x:Key="CheckAllHardCodeProcess_case1_finalyfrase">] contains HardCode with expression:</system:String>
+    <system:String x:Key="Check_Global_Itens_case1_initialfrase">is Global and is in the subpage</system:String>
+    <system:String x:Key="Check_Global_Itens_case1_finalyfrase">instead of the Main Page</system:String>
+    <system:String x:Key="Recovery_In_MainPage_case1">Main Page does not contain</system:String>
+    <system:String x:Key="Recovery_In_MainPage_case2">Main Page only contains 1 Recover (evaluation needed if the process closes everything in case of TERMINATE.)</system:String>
+    <!-- leitura_blue_prism_object.cs-->
+    <system:String x:Key="leitura_blue_prism_object_acao">Action:</system:String>
+    <system:String x:Key="Check_element_and_Attributes_case1">Element type with incorrect description or missing hyphens with spacing between them</system:String>
+    <system:String x:Key="Check_Contais_Stage_InPage_case1">The page does not contain</system:String>
+    <system:String x:Key="Check_Contais_Stage_InPage_case2">The page contains</system:String>
+    <system:String x:Key="Count_Page_case1">Object with excessive number of pages, the maximum is 15, quantity created is:</system:String>
+    <system:String x:Key="Count_Stages_InPage_Initialfrase">Page contains a total of</system:String>
+    <system:String x:Key="Count_Stages_InPage_finalyfrase">stages, the maximum allowed is 15</system:String>
+    <system:String x:Key="Check_wait_time_case1">with a fixed value of:</system:String>
+    <system:String x:Key="Check_All_Exception_initialfrase">with</system:String>
+    <system:String x:Key="Check_All_Exception_finalyfrase">the correct one is: 'System Exception' or 'Business Exception'</system:String>
+    <system:String x:Key="Check_Narrative_case1">There is no narrative on the page.</system:String>
+    <system:String x:Key="obj_Tamanho_blocos_case1">out of pattern, should have 2 blocks of height and 8 blocks of width.</system:String>
+    <system:String x:Key="Identif_Subsheets_And_Actions_case1_initialfrase">There is a reference to another page with name:</system:String>
+    <system:String x:Key="Identif_Subsheets_And_Actions_case1_finalyfrase">being used on the page.</system:String>
+    <system:String x:Key="Identif_Subsheets_And_Actions_case2_initialfrase">There is an 'action' to another page with name:</system:String>
+    <system:String x:Key="Search_Attach_case1">There is no attach on this page</system:String>
+    <system:String x:Key="Search_Attach_case2">Item after Start is not Attach</system:String>
+    <system:String x:Key="Search_Attach_case3">Missing Wait after Attach</system:String>
+    <system:String x:Key="Check_Exceptions_initialfrase">On page '</system:String>
+    <system:String x:Key="Check_Exceptions_middlefrase">' Found Exception [</system:String>
+    <system:String x:Key="Check_Exceptions_finalyfrase">] same as</system:String>
+    <system:String x:Key="Check_Environment_case1">There is an environment variable in the stage:</system:String>
+    <system:String x:Key="CheckAllHardCodeProcess_initialfrase">The item:</system:String>
+    <system:String x:Key="CheckAllHardCodeProcess_finalyfrase">Contains HardCode with the expression:</system:String>
+    <system:String x:Key="Check_SendkeysAndMouseClick_initialfrase">Stage [</system:String>
+    <system:String x:Key="Check_SendkeysAndMouseClick_finalyfrase">] without Activate Application or Focus</system:String>
+<!-- vExcelv.cs-->
+    <system:String x:Key="criar_cabecalho_Objetos_title">Objects</system:String>
+    <system:String x:Key="criar_cabecalho_Objetos_b1">Object Name</system:String>
+    <system:String x:Key="criar_cabecalho_Objetos_c1">Element / Action</system:String>
+    <system:String x:Key="criar_cabecalho_Objetos_d1">Description</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_title">Projects</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_b1">Process name</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_c1">Page name</system:String>
+
+
+    <!-- ???? -->
 </ResourceDictionary>

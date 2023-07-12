@@ -32,25 +32,29 @@ namespace Code_Inspector
         {
             if (Txt_Local_Arquivo.Text == "")
             {
-                StatusLabel.Content = "Aguardando seleção de arquivo...";
-                Iniciar.IsEnabled = false;
+                //StatusLabel.Content = "Aguardando seleção de arquivo...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel1");
+                Iniciar.IsEnabled= false;
                 rectangle_status.Fill = null;
             }
             else if (ComboBox_Item == "" || ComboBox_Item == null)
             {
-                StatusLabel.Content = "Aguardando seleção de Tipo de Release...";
+                //StatusLabel.Content = "Aguardando seleção de Tipo de Release...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel2"); ;
                 Iniciar.IsEnabled = false;
                 rectangle_status.Fill = null;
             }
             else if (ComboBox_Item == "Automation Anywhere" || ComboBox_Item == "UI Path")
             {
-                StatusLabel.Content = "Desculpas mas ainda não tenho suporte para esse tipo de release";
+                //StatusLabel.Content = "Desculpas mas ainda não tenho suporte para esse tipo de release";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel3");
                 Iniciar.IsEnabled = false;
                 rectangle_status.Fill = null;
             }
-            else
+            else 
             {
-                StatusLabel.Content = "Pronto para iniciar...";
+                //StatusLabel.Content = "Pronto para iniciar...";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel4");
                 Iniciar.IsEnabled = true;
                 rectangle_status.Fill = null;
             }
@@ -93,7 +97,8 @@ namespace Code_Inspector
             rectangle_status.Fill = null;
             progressBar.Opacity = 1;
             Iniciar.IsEnabled = false;
-            StatusLabel.Content = "Load ODI...";
+           // StatusLabel.Content = "Load ODI...";
+            StatusLabel.Content = FindResource("ODI_Csharp_StatusLabel1");
             vExcelv.Criar_Workbooks excel = new vExcelv.Criar_Workbooks();
             excel.Criar_Workbook();
             excel.Criar_Woksheet("Preview_IT");
@@ -103,12 +108,14 @@ namespace Code_Inspector
                 await Task.Run(() => iniciar_Leitor_Release(excel));
                 //await Task.Run(iniciar_Leitor_Release);
                 //SafeReview.Objetos_Blue_Prism.Implentation_Tracker.Leitura_objetos_Tracker(arquivo_raiz);
-                StatusLabel.Content = "ODI Concluida";
+                //StatusLabel.Content = "ODI Concluida";
+                StatusLabel.Content = FindResource("ODI_Csharp_StatusLabel2");
                 rectangle_status.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF06B025"));
             }
             catch
             {
-                StatusLabel.Content = "Erro ao gerar ODI, arquivo com erro ou corrompido";
+                // StatusLabel.Content = "Erro ao gerar ODI, arquivo com erro ou corrompido";
+                StatusLabel.Content = FindResource("ODI_Csharp_StatusLabel3");
                 rectangle_status.Fill = new SolidColorBrush(Colors.Red);
             }
             excel.Excel_Visible();

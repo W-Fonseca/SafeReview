@@ -16,7 +16,6 @@ namespace SafeReview
     {
         public static void Languagem_Subpages(string language)
         {
-
             // Carrega o novo ResourceDictionary
             ResourceDictionary newResourceDictionary = new ResourceDictionary();
             newResourceDictionary.Source = new Uri(language, UriKind.Relative);

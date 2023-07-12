@@ -56,26 +56,26 @@ namespace SafeReview.Objetos_Blue_Prism
 
             public void criar_cabecalho_Objetos()
             {
-                _workbook.Worksheets["Conferencia_Objetos"].select();
-                _worksheet.Range["A1"].Value = "Erro / Alerta / Notificação";
-                _worksheet.Range["B1"].Value = "Nome Objeto";
-                _worksheet.Range["C1"].Value = "Elemento / Ação";
-                _worksheet.Range["D1"].Value = "Descrição";
+                _workbook.Worksheets[MainWindow.dictionary["criar_cabecalho_Objetos_title"].ToString()].select();
+                _worksheet.Range["A1"].Value = MainWindow.dictionary["conferencia_paginas_comuns_Erro"].ToString() +" / "+ MainWindow.dictionary["conferencia_paginas_comuns_Alerta"].ToString()+" / "+MainWindow.dictionary["conferencia_paginas_comuns_Notificacao"].ToString();
+                _worksheet.Range["B1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_b1"].ToString();
+                _worksheet.Range["C1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_c1"].ToString();
+                _worksheet.Range["D1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_d1"].ToString();
             }
 
             public void criar_cabecalho_Processo()
             {
-                _workbook.Worksheets["Conferencia_Processo"].select();
-                _worksheet.Range["A1"].Value = "Erro / Alerta / Notificação";
-                _worksheet.Range["B1"].Value = "Nome Processo";
-                _worksheet.Range["C1"].Value = "Nome Página";
-                _worksheet.Range["D1"].Value = "Descrição";
+                _workbook.Worksheets[MainWindow.dictionary["criar_cabecalho_Processo_title"].ToString()].select();
+                _worksheet.Range["A1"].Value = MainWindow.dictionary["conferencia_paginas_comuns_Erro"].ToString() + " / " + MainWindow.dictionary["conferencia_paginas_comuns_Alerta"].ToString() + " / " + MainWindow.dictionary["conferencia_paginas_comuns_Notificacao"].ToString();
+                _worksheet.Range["B1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_b1"].ToString();
+                _worksheet.Range["C1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_c1"].ToString();
+                _worksheet.Range["D1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_d1"].ToString();
             }
             public void criar_implamentation_Tracker()
             {
                 _workbook.Worksheets["Preview_IT"].select();
-                _worksheet.Range["A1"].Value = "Nome Objeto";
-                _worksheet.Range["B1"].Value = "Nome Página";
+                _worksheet.Range["A1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_b1"].ToString();
+                _worksheet.Range["B1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_c1"].ToString();
                 _worksheet.Range["C1"].Value = "Publish";
                 _worksheet.Range["D1"].Value = "Input_Name";
                 _worksheet.Range["E1"].Value = "Input_Narrative";

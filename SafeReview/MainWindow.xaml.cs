@@ -19,12 +19,15 @@ namespace SafeReview
 {
     public partial class MainWindow : Window
     {
+        public static string language;
+        public static ResourceDictionary dictionary;
         public MainWindow()
         {
 
             InitializeComponent();
             string Language = ConfigurationManager.AppSettings["Language"];
-            Page_Config.SwitchLanguage(this, Language);;
+            Page_Config.SwitchLanguage(this, Language);
+            language = Language;
         }
 
         private void Click_Mover_Janela(object sender, MouseButtonEventArgs e)

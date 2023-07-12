@@ -24,6 +24,9 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Objetos_Blue_Prism\Dictionary_BP.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Page_Config.xaml">
       <SubType>Designer</SubType>
     </Page>

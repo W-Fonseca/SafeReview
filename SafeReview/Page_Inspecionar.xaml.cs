@@ -2,9 +2,11 @@
 using SafeReview;
 using SafeReview.Objetos_Blue_Prism;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
@@ -102,6 +104,7 @@ namespace Code_Inspector
 
         private async void Iniciar_Conferencia(object sender, RoutedEventArgs e)
         {
+
             rectangle_status.Fill = null;
             progressBar.Opacity = 1;
             Iniciar.IsEnabled = false;
@@ -110,19 +113,21 @@ namespace Code_Inspector
             vExcelv.Criar_Workbooks excel = new vExcelv.Criar_Workbooks();
             excel.Criar_Workbook();
             //excel.Criar_Woksheet("Conferencia_Processo");
-            excel.Criar_Woksheet(FindResource("WorksheetName_Conferencia_processo").ToString());
+            excel.Criar_Woksheet(FindResource("criar_cabecalho_Processo_title").ToString());
             excel.criar_cabecalho_Processo();
             try
             {
                 await Task.Run(()=>iniciar_Leitor_Release(excel));
-                StatusLabel.Content = "Inspeção Concluida";
+                //StatusLabel.Content = "Inspeção Concluida";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel6");
                 rectangle_status.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF06B025"));
 
             }
 
             catch
             {
-                StatusLabel.Content = "Erro na Inspeção, arquivo com erro ou corrompido";
+                //StatusLabel.Content = "Erro na Inspeção, arquivo com erro ou corrompido";
+                StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel7");
                 rectangle_status.Fill = new SolidColorBrush(Colors.Red);
             }
             excel.Excel_Visible();
@@ -132,7 +137,7 @@ namespace Code_Inspector
 
         private void iniciar_Leitor_Release(vExcelv.Criar_Workbooks excel)
         {
-            Leitura_blue_prism_process.Leitor_Release(arquivo_raiz,excel);
+            Leitura_blue_prism_process.Leitor_Release(arquivo_raiz,excel, MainWindow.language);
         }
     }
 }
