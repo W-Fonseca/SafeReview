@@ -49,10 +49,10 @@ namespace Code_Inspector
                     for (int i = 0; i < 3; i++)
                     {
                         parentDirPath = Directory.GetParent(parentDirPath)?.FullName;
-                        if (File.Exists(parentDirPath + "/Assets/Logo" + ajustarImagem2))
+                        if (File.Exists(parentDirPath + "/Logo" + ajustarImagem2))
                         {
-                            System.IO.Path.ChangeExtension(parentDirPath + "/Assets/Logo" + ajustarImagem2, ajustarImagem);
-                            File.Move(parentDirPath + "/Assets/Logo" + ajustarImagem2, System.IO.Path.ChangeExtension(parentDirPath + "/Assets/Logo" + ajustarImagem2, ajustarImagem));
+                            System.IO.Path.ChangeExtension(parentDirPath + "/Logo" + ajustarImagem2, ajustarImagem);
+                            File.Move(parentDirPath + "/Logo" + ajustarImagem2, System.IO.Path.ChangeExtension(parentDirPath + "/Logo" + ajustarImagem2, ajustarImagem));
                             break;
                         }
                     }
@@ -61,14 +61,14 @@ namespace Code_Inspector
                     for (int i = 0; i < 3; i++)
                     {
                         parentDirPath = Directory.GetParent(parentDirPath)?.FullName;
-                        if (File.Exists(parentDirPath + "/Assets/Logo" + ajustarImagem))
+                        if (File.Exists(parentDirPath + "/Logo" + ajustarImagem))
                         {
-                            System.IO.Path.ChangeExtension(parentDirPath + "/Assets/Logo" + ajustarImagem, ajustarImagem2);
-                            File.Move(parentDirPath + "/Assets/Logo" + ajustarImagem, System.IO.Path.ChangeExtension(parentDirPath + "/Assets/Logo" + ajustarImagem, ajustarImagem2));
+                            System.IO.Path.ChangeExtension(parentDirPath + "/Logo" + ajustarImagem, ajustarImagem2);
+                            File.Move(parentDirPath + "/Logo" + ajustarImagem, System.IO.Path.ChangeExtension(parentDirPath + "/Logo" + ajustarImagem, ajustarImagem2));
                             break;
                         }
                     }
-                    player.SoundLocation = parentDirPath + "/Assets/Logo" + ajustarImagem2;
+                    player.SoundLocation = parentDirPath + "/Logo" + ajustarImagem2;
                     player.Play();
 
                 informacoes_projeto.FontSize= 55;

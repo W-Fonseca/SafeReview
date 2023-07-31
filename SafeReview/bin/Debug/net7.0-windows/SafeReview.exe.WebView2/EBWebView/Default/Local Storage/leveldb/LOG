@@ -1,8 +1,17 @@
-2023/07/12-17:52:06.569 984 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/07/12-17:52:06.574 984 Recovering log #104
-2023/07/12-17:52:06.576 984 Level-0 table #107: started
-2023/07/12-17:52:06.586 984 Level-0 table #107: 24737 bytes OK
-2023/07/12-17:52:06.606 984 Delete type=0 #104
-2023/07/12-17:52:25.516 1e6c Level-0 table #110: started
-2023/07/12-17:52:25.525 1e6c Level-0 table #110: 27318 bytes OK
-2023/07/12-17:52:25.528 1e6c Delete type=0 #108
+2023/07/29-20:07:24.325 7158 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/07/29-20:07:24.328 7158 Recovering log #134
+2023/07/29-20:07:24.329 7158 Level-0 table #136: started
+2023/07/29-20:07:24.339 7158 Level-0 table #136: 24767 bytes OK
+2023/07/29-20:07:24.346 7158 Delete type=0 #134
+2023/07/29-20:07:44.432 518c Level-0 table #139: started
+2023/07/29-20:07:44.439 518c Level-0 table #139: 27738 bytes OK
+2023/07/29-20:07:44.443 518c Delete type=0 #137
+2023/07/29-20:07:44.444 7158 Compacting 4@0 + 1@1 files
+2023/07/29-20:07:44.461 7158 Generated table #140@0: 112 keys, 48249 bytes
+2023/07/29-20:07:44.461 7158 Compacted 4@0 + 1@1 files => 48249 bytes
+2023/07/29-20:07:44.463 7158 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/07/29-20:07:44.466 7158 Delete type=2 #128
+2023/07/29-20:07:44.466 7158 Delete type=2 #130
+2023/07/29-20:07:44.466 7158 Delete type=2 #133
+2023/07/29-20:07:44.466 7158 Delete type=2 #136
+2023/07/29-20:07:44.466 7158 Delete type=2 #139

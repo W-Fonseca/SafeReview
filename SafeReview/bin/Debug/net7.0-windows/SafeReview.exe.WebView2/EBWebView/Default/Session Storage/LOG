@@ -1,15 +1,6 @@
-2023/07/12-17:52:07.376 984 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
-2023/07/12-17:52:07.391 984 Recovering log #75
-2023/07/12-17:52:07.400 984 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000075.log 
-2023/07/12-17:52:20.288 1e6c Level-0 table #79: started
-2023/07/12-17:52:20.297 1e6c Level-0 table #79: 70959 bytes OK
-2023/07/12-17:52:20.300 1e6c Delete type=0 #75
-2023/07/12-17:52:20.301 984 Compacting 4@0 + 1@1 files
-2023/07/12-17:52:20.317 984 Generated table #80@0: 1442 keys, 88284 bytes
-2023/07/12-17:52:20.317 984 Compacted 4@0 + 1@1 files => 88284 bytes
-2023/07/12-17:52:20.318 984 compacted to: files[ 0 1 1 0 0 0 0 ]
-2023/07/12-17:52:20.320 984 Delete type=2 #67
-2023/07/12-17:52:20.320 984 Delete type=2 #70
-2023/07/12-17:52:20.320 984 Delete type=2 #73
-2023/07/12-17:52:20.320 984 Delete type=2 #76
-2023/07/12-17:52:20.320 984 Delete type=2 #79
+2023/07/29-20:07:27.044 7158 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/MANIFEST-000001
+2023/07/29-20:07:27.046 7158 Recovering log #95
+2023/07/29-20:07:27.049 7158 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Session Storage/000095.log 
+2023/07/29-20:07:39.349 518c Level-0 table #99: started
+2023/07/29-20:07:39.359 518c Level-0 table #99: 53180 bytes OK
+2023/07/29-20:07:39.363 518c Delete type=0 #95

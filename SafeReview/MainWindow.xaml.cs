@@ -1,4 +1,5 @@
 ﻿using Code_Inspector;
+using SafeReview.Objetos_Blue_Prism;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -254,6 +255,24 @@ namespace SafeReview
                 Main.NavigationService.RemoveBackEntry();
             }
             Main.Content = new Page_Config();
+        }
+
+        public void CLB_Grafico_Detail()
+        {
+            if (Main.Content is Page_Grafico_Detail)
+            {
+                return;
+            }
+            else
+            {
+                Main.NavigationService.RemoveBackEntry();
+            }
+            Main.Content = new Page_Grafico_Detail();
+        }
+
+        public static void Chamar_CLB_Grafico_Detail(MainWindow mainWindow)
+        {
+            mainWindow.CLB_Grafico_Detail();
         }
     }
 }

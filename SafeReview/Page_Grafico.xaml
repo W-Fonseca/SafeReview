@@ -4,11 +4,86 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Code_Inspector"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page_Grafico">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="6" VerticalAlignment="Center" >
+            <TextBlock Opacity=".4" FontSize="13" Foreground="White" Text=""/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="white" Opacity=".4" FontSize="13" Text="Total por Tipo" />
+                <TextBlock Foreground="Red" FontSize="13" VerticalAlignment="Bottom" Margin="8, 6"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="1" Grid.Column="12" Grid.ColumnSpan="6" VerticalAlignment="Center" >
+            <TextBlock Opacity=".4" FontSize="13" Foreground="White" Text="Total por Tópicos em"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="White" FontSize="40" Text="{DynamicResource criar_cabecalho_Processo_title}" />
+                <TextBlock Foreground="Red" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Grid.RowSpan="1" Grid.Column="12" Grid.ColumnSpan="6" VerticalAlignment="Center" >
+            <TextBlock Opacity=".4" FontSize="13" Foreground="White" Text="Total por Tópicos em"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="White" FontSize="40" Text="{DynamicResource criar_cabecalho_Objetos_title}" />
+                <TextBlock Foreground="Yellow" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <lvc:PieChart x:Name="Grafico2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.RowSpan="2" Grid.Column="12"  Grid.ColumnSpan="6" Series="{Binding SeriesCollection2}" RenderTransformOrigin="0.5,0.5" PreviewMouseDown="Grafico2_MouseLeftButtonDown"/>
+        <lvc:PieChart x:Name="Grafico" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="6" Series="{Binding SeriesCollection}" RenderTransformOrigin="0.5,0.5" PreviewMouseDown="Grafico3_MouseLeftButtonDown"/>
+
+
+        <lvc:CartesianChart Series="{Binding SeriesCollection_BasicColumn}"  Grid.Row="1" Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="11">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Labels="{Binding BasicColumnLabels}"  Foreground="White">
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Quantidade"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+
+
     </Grid>
 </Page>
