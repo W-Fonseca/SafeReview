@@ -39,16 +39,16 @@
     <!-- Worksheet-->
     <system:String x:Key="WorksheetName_Conferencia_processo">Process Conference</system:String>
     <!-- Page_Informacoes.xaml -->
-    <system:String x:Key="Informacoes_txtB_informacoes">There are several reasons why it is important to adopt good practices for building objects and processes. Some of these reasons include:
-1. Better efficiency: Adopting good practices can help improve the efficiency of the automated processes. This means they can be executed more quickly and with fewer errors.
-2. Increased accuracy: When good practices are followed, processes are more likely to be executed with greater accuracy and consistency. This can lead to more reliable and accurate results.\r\n\r\n
-3. Less maintenance: If objects and processes are built with good practices in mind, they may require less maintenance and error correction. This can save time and money in the long run.\r\n\r\n
-4. Ease of maintenance: When objects and processes are built according to good practices, they can be easier to maintain and update. \r\nThis is important to ensure that automated processes continue to function properly as business needs change.\r\n\r\n
-
-Regulatory compliance: Some good practices are necessary to ensure regulatory compliance. This is particularly important in highly regulated sectors such as finance and healthcare.\r\n\r\n
-Increased reusability: When objects and processes are built with good practices in mind, they can be easier to reuse in other projects. This can save time and effort in developing new processes.\r\n\r\n
-In summary, adopting good practices for building objects and processes can make them more efficient, accurate, easy to maintain, and compliant with regulations. This can result in time and money savings and increased reusability.
+    <system:String x:Key="Informacoes_txtB_informacoes1">There are several reasons why it is important to adopt best practices for building objects and processes. Some of these reasons include:</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes2">1. Improved efficiency: Adopting best practices can help improve the efficiency of automated processes. This means they can be executed faster and with fewer errors.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes3">2. Greater accuracy: When best practices are followed, processes are more likely to be executed with greater precision and consistency. This can lead to more reliable and accurate results.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes4">3. Reduced maintenance: Objects and processes built with best practices in mind may require less maintenance and error correction. This can save time and money in the long run.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes5">4. Ease of maintenance: When objects and processes are built according to best practices, they can be easier to maintain and update. This is important to ensure that automated processes continue to function properly as business needs change.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes6">5. Regulatory compliance: Some best practices are necessary to ensure regulatory compliance. This is particularly important in highly regulated industries such as finance and healthcare.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes7">6. Greater reusability: When objects and processes are built with best practices in mind, they can be easier to reuse in other projects. This can save time and effort in developing new processes.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes8">In summary, adopting best practices for building objects and processes can make them more efficient, accurate, easy to maintain, and compliant with regulations. This can result in time and cost savings and greater reusability.
     </system:String>
+
     <!-- Leitura_blue_prism_process.cs -->
     <system:String x:Key="conferencia_paginas_comuns_Notificacao">Notification</system:String>
     <system:String x:Key="conferencia_paginas_comuns_Erro">Error</system:String>
@@ -129,6 +129,26 @@ In summary, adopting good practices for building objects and processes can make 
     <system:String x:Key="criar_cabecalho_Processo_title">Projects</system:String>
     <system:String x:Key="criar_cabecalho_Processo_b1">Process name</system:String>
     <system:String x:Key="criar_cabecalho_Processo_c1">Page name</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_Topicos">Topics</system:String>
+    <!-- Categoria -->
+    <system:String x:Key="Aderencia_Template_Processo">Adherence to Process Template</system:String>
+    <system:String x:Key="Credenciais">Credentials</system:String>
+    <system:String x:Key="Documentacao_Sustentacao">Documentation and Support</system:String>
+    <system:String x:Key="Gerenciamento_Erros">Error Management</system:String>
+    <system:String x:Key="Logica_Arquitetura">Logic and Architecture</system:String>
+    <system:String x:Key="Uso_Fila_Trabalho">Use of Work Queue</system:String>
+    <system:String x:Key="Variaveis">Variables</system:String>
+    <system:String x:Key="Aderencia_Template_Object">Adherence to Business Object Template</system:String>
+    <system:String x:Key="Arquitetura_1">Architecture</system:String>
+    <system:String x:Key="Assertividade_Execucao">Assertiveness / Execution</system:String>
+    <system:String x:Key="Reutilizacao">Reuse</system:String>
+    <system:String x:Key="Acoes_1">Actions</system:String>
+    <system:String x:Key="Elemento_1">Element</system:String>
+    <!-- Page_Graficos.xaml -->
+    <system:String x:Key="Page_Grafico_text1">Total by Type</system:String>
+    <system:String x:Key="Page_Grafico_text2">Total by Topics in</system:String>
+    <system:String x:Key="Page_Grafico_text3">Quantity</system:String>
+
 
 
     <!-- ???? -->

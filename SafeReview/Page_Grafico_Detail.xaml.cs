@@ -83,11 +83,12 @@ namespace SafeReview
                 }                
                 DataContext = this;
                 if (GraficoClicado == "PRO") { 
-                BasicColumnLabels = new[] { "Processo" };
+                BasicColumnLabels = new[] { FindResource("criar_cabecalho_Processo_title").ToString() };
                 }
+                
                 else
                 {
-                    BasicColumnLabels = new[] { "Objeto" };
+                    BasicColumnLabels = new[] { FindResource("criar_cabecalho_Objetos_title").ToString() };
                 }
                 //CartesianChart.MinValue = -10;
             }

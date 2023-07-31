@@ -221,7 +221,9 @@ namespace SafeReview
 
         private void CLB_Grafico(object sender, MouseButtonEventArgs e)
         {
-            if (Main.Content is Page_Grafico)
+            if (Page_Grafico.TabelaProcesso.Rows.Count > 0 || Page_Grafico.TabelaObjeto.Rows.Count > 0)
+            { 
+                if (Main.Content is Page_Grafico)
             {
                 return;
             }
@@ -230,6 +232,19 @@ namespace SafeReview
                 Main.NavigationService.RemoveBackEntry();
             }
             Main.Content = new Page_Grafico();
+            }
+            else
+            {
+                if (Main.Content is Page_Grafico_Null)
+                {
+                    return;
+                }
+                else
+                {
+                    Main.NavigationService.RemoveBackEntry();
+                }
+                Main.Content = new Page_Grafico_Null();
+            }
         }
 
         private void CLB_Inspecionar(object sender, MouseButtonEventArgs e)

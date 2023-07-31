@@ -40,15 +40,16 @@
     <!-- Worksheet-->
     <system:String x:Key="WorksheetName_Conferencia_processo">Conferencia de Procesos</system:String>
     <!-- Page_Informaciones.xaml -->
-    <system:String x:Key="Informaciones_txtB_informaciones">Existen varias razones por las cuales es importante adoptar buenas prácticas para la construcción de objetos y procesos. Algunas de estas razones incluyen: &#x0a;
-        1. Mejor eficiencia: La adopción de buenas prácticas puede ayudar a mejorar la eficiencia de los procesos que se están automatizando. Esto significa que pueden ejecutarse más rápidamente y con menos errores. &#x0a;
-2. Mayor precisión: Cuando se siguen buenas prácticas, es más probable que los procesos se ejecuten con mayor precisión y consistencia. Esto puede llevar a resultados más confiables y precisos.\r\n\r\n
-3. Menos mantenimiento: Si los objetos y procesos se construyen teniendo en cuenta las buenas prácticas, es posible que requieran menos mantenimiento y corrección de errores. Esto puede ahorrar tiempo y dinero a largo plazo.\r\n\r\n
-4. Facilidad de mantenimiento: Cuando los objetos y procesos se construyen según las buenas prácticas, pueden ser más fáciles de mantener y actualizar. \r\nEsto es importante para garantizar que los procesos automatizados sigan funcionando correctamente a medida que cambian las necesidades comerciales.\r\n\r\n
-5. Cumplimiento normativo: Algunas buenas prácticas son necesarias para garantizar el cumplimiento de las regulaciones. Esto es especialmente importante en sectores altamente regulados como las finanzas y la salud.\r\n\r\n
-6. Mayor reutilización: Cuando los objetos y procesos se construyen teniendo en cuenta las buenas prácticas, pueden ser más fáciles de reutilizar en otros proyectos. Esto puede ahorrar tiempo y esfuerzo en el desarrollo de nuevos procesos.\r\n\r\n
-En resumen, adoptar buenas prácticas para la construcción de objetos y procesos puede hacerlos más eficientes, precisos, fáciles de mantener y cumplir con las regulaciones. Esto puede resultar en ahorro de tiempo y dinero, y mayor reutilización.
+    <system:String x:Key="Informacoes_txtB_informacoes1">Existen varias razones por las cuales es importante adoptar las mejores prácticas para construir objetos y procesos. Algunas de estas razones incluyen:</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes2">1. Mayor eficiencia: La adopción de las mejores prácticas puede ayudar a mejorar la eficiencia de los procesos automatizados. Esto significa que pueden ejecutarse más rápido y con menos errores.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes3">2. Mayor precisión: Cuando se siguen las mejores prácticas, es más probable que los procesos se ejecuten con mayor precisión y consistencia. Esto puede conducir a resultados más confiables y precisos.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes4">3. Menor mantenimiento: Los objetos y procesos construidos teniendo en cuenta las mejores prácticas pueden requerir menos mantenimiento y corrección de errores. Esto puede ahorrar tiempo y dinero a largo plazo.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes5">4. Facilidad de mantenimiento: Cuando los objetos y procesos se construyen de acuerdo con las mejores prácticas, pueden ser más fáciles de mantener y actualizar. Esto es importante para asegurar que los procesos automatizados continúen funcionando correctamente a medida que cambian las necesidades del negocio.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes6">5. Cumplimiento normativo: Algunas mejores prácticas son necesarias para garantizar el cumplimiento de regulaciones. Esto es especialmente importante en industrias altamente reguladas como las finanzas y la salud.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes7">6. Mayor reutilización: Cuando los objetos y procesos se construyen teniendo en cuenta las mejores prácticas, pueden ser más fáciles de reutilizar en otros proyectos. Esto puede ahorrar tiempo y esfuerzo en el desarrollo de nuevos procesos.</system:String>
+    <system:String x:Key="Informacoes_txtB_informacoes8">En resumen, adoptar las mejores prácticas para construir objetos y procesos puede hacerlos más eficientes, precisos, fáciles de mantener y compatibles con las regulaciones. Esto puede resultar en ahorro de tiempo y dinero, así como una mayor reutilización.
     </system:String>
+
     <!-- Leitura_blue_prism_process.cs -->
     <system:String x:Key="conferencia_paginas_comuns_Notificacao">Notificación</system:String>
     <system:String x:Key="conferencia_paginas_comuns_Erro">Error</system:String>
@@ -129,6 +130,27 @@ En resumen, adoptar buenas prácticas para la construcción de objetos y proceso
     <system:String x:Key="criar_cabecalho_Processo_title">Proyectos</system:String>
     <system:String x:Key="criar_cabecalho_Processo_b1">Nombre del proceso</system:String>
     <system:String x:Key="criar_cabecalho_Processo_c1">Nombre de la página</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_Topicos">Temas</system:String>
+    <!-- Categoria -->
+    <system:String x:Key="Aderencia_Template_Processo">Adherencia al Template de Proceso</system:String>
+    <system:String x:Key="Credenciais">Credenciales</system:String>
+    <system:String x:Key="Documentacao_Sustentacao">Documentación y Sostenimiento</system:String>
+    <system:String x:Key="Gerenciamento_Erros">Gestión de Errores</system:String>
+    <system:String x:Key="Logica_Arquitetura">Lógica y Arquitectura</system:String>
+    <system:String x:Key="Uso_Fila_Trabalho">Uso de la Cola de Trabajo</system:String>
+    <system:String x:Key="Variaveis">Variables</system:String>
+    <system:String x:Key="Aderencia_Template_Object">Adherencia al Template de Objeto de Negocio</system:String>
+    <system:String x:Key="Arquitetura_1">Arquitectura</system:String>
+    <system:String x:Key="Assertividade_Execucao">Asertividad / Ejecución</system:String>
+    <system:String x:Key="Reutilizacao">Reutilización</system:String>
+    <system:String x:Key="Acoes_1">Acciones</system:String>
+    <system:String x:Key="Elemento_1">Elemento</system:String>
+    <!-- Page_Graficos.xaml -->
+    <system:String x:Key="Page_Grafico_text1">Total por Tipo</system:String>
+    <system:String x:Key="Page_Grafico_text2">Total por Temas en</system:String>
+    <system:String x:Key="Page_Grafico_text3">Cantidad</system:String>
+
+
 
 
     <!-- ???? -->

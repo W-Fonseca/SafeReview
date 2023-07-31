@@ -58,7 +58,7 @@ namespace SafeReview.Objetos_Blue_Prism
             {
                 _workbook.Worksheets[MainWindow.dictionary["criar_cabecalho_Objetos_title"].ToString()].select();
                 _worksheet.Range["A1"].Value = MainWindow.dictionary["conferencia_paginas_comuns_Erro"].ToString() +" / "+ MainWindow.dictionary["conferencia_paginas_comuns_Alerta"].ToString()+" / "+MainWindow.dictionary["conferencia_paginas_comuns_Notificacao"].ToString();
-                _worksheet.Range["B1"].Value = "tópicos";
+                _worksheet.Range["B1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_Topicos"].ToString();
                 _worksheet.Range["C1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_b1"].ToString();
                 _worksheet.Range["D1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_c1"].ToString();
                 _worksheet.Range["E1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_d1"].ToString();
@@ -68,7 +68,7 @@ namespace SafeReview.Objetos_Blue_Prism
             {
                 _workbook.Worksheets[MainWindow.dictionary["criar_cabecalho_Processo_title"].ToString()].select();
                 _worksheet.Range["A1"].Value = MainWindow.dictionary["conferencia_paginas_comuns_Erro"].ToString() + " / " + MainWindow.dictionary["conferencia_paginas_comuns_Alerta"].ToString() + " / " + MainWindow.dictionary["conferencia_paginas_comuns_Notificacao"].ToString();
-                _worksheet.Range["B1"].Value = "Tópicos";
+                _worksheet.Range["B1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_Topicos"].ToString();
                 _worksheet.Range["C1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_b1"].ToString();
                 _worksheet.Range["D1"].Value = MainWindow.dictionary["criar_cabecalho_Processo_c1"].ToString();
                 _worksheet.Range["E1"].Value = MainWindow.dictionary["criar_cabecalho_Objetos_d1"].ToString();

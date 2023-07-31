@@ -1,17 +1,17 @@
-2023/07/29-20:07:24.325 7158 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/07/29-20:07:24.328 7158 Recovering log #134
-2023/07/29-20:07:24.329 7158 Level-0 table #136: started
-2023/07/29-20:07:24.339 7158 Level-0 table #136: 24767 bytes OK
-2023/07/29-20:07:24.346 7158 Delete type=0 #134
-2023/07/29-20:07:44.432 518c Level-0 table #139: started
-2023/07/29-20:07:44.439 518c Level-0 table #139: 27738 bytes OK
-2023/07/29-20:07:44.443 518c Delete type=0 #137
-2023/07/29-20:07:44.444 7158 Compacting 4@0 + 1@1 files
-2023/07/29-20:07:44.461 7158 Generated table #140@0: 112 keys, 48249 bytes
-2023/07/29-20:07:44.461 7158 Compacted 4@0 + 1@1 files => 48249 bytes
-2023/07/29-20:07:44.463 7158 compacted to: files[ 0 1 1 0 0 0 0 ]
-2023/07/29-20:07:44.466 7158 Delete type=2 #128
-2023/07/29-20:07:44.466 7158 Delete type=2 #130
-2023/07/29-20:07:44.466 7158 Delete type=2 #133
-2023/07/29-20:07:44.466 7158 Delete type=2 #136
-2023/07/29-20:07:44.466 7158 Delete type=2 #139
+2023/07/31-18:22:12.677 3540 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/07/31-18:22:12.679 3540 Recovering log #159
+2023/07/31-18:22:12.681 3540 Level-0 table #162: started
+2023/07/31-18:22:12.694 3540 Level-0 table #162: 24638 bytes OK
+2023/07/31-18:22:12.707 3540 Delete type=0 #159
+2023/07/31-18:22:12.710 842c Compacting 4@0 + 1@1 files
+2023/07/31-18:22:12.729 842c Generated table #164@0: 131 keys, 48443 bytes
+2023/07/31-18:22:12.729 842c Compacted 4@0 + 1@1 files => 48443 bytes
+2023/07/31-18:22:12.730 842c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/07/31-18:22:12.733 842c Delete type=2 #152
+2023/07/31-18:22:12.733 842c Delete type=2 #154
+2023/07/31-18:22:12.733 842c Delete type=2 #157
+2023/07/31-18:22:12.733 842c Delete type=2 #160
+2023/07/31-18:22:12.733 842c Delete type=2 #162
+2023/07/31-18:23:13.629 842c Level-0 table #166: started
+2023/07/31-18:23:13.639 842c Level-0 table #166: 24582 bytes OK
+2023/07/31-18:23:13.641 842c Delete type=0 #163

@@ -71,7 +71,7 @@ namespace Code_Inspector
                     player.SoundLocation = parentDirPath + "/Logo" + ajustarImagem2;
                     player.Play();
 
-                informacoes_projeto.FontSize= 55;
+                informacoes_projeto.FontSize= 30;
                 informacoes_projeto.Text = Char.ConvertFromUtf32(67)+Char.ConvertFromUtf32(114)+ Char.ConvertFromUtf32(101)+ Char.ConvertFromUtf32(97) + Char.ConvertFromUtf32(116) + Char.ConvertFromUtf32(101) + Char.ConvertFromUtf32(32)+ Char.ConvertFromUtf32(66)+ Char.ConvertFromUtf32(121)+ Char.ConvertFromUtf32(58) + Char.ConvertFromUtf32(32) + "" + Char.ConvertFromUtf32(104) + Char.ConvertFromUtf32(116) + Char.ConvertFromUtf32(116) + Char.ConvertFromUtf32(112) + Char.ConvertFromUtf32(115) + Char.ConvertFromUtf32(58) + Char.ConvertFromUtf32(47) + Char.ConvertFromUtf32(47)+ Char.ConvertFromUtf32(0x67) + Char.ConvertFromUtf32(0x69) + Char.ConvertFromUtf32(0x74) + Char.ConvertFromUtf32(0x68) + Char.ConvertFromUtf32(0x75) + Char.ConvertFromUtf32(0x62)+ Char.ConvertFromUtf32(47)+ Char.ConvertFromUtf32(0x57) + "-" + Char.ConvertFromUtf32(0x46) + Char.ConvertFromUtf32(0x6F) + Char.ConvertFromUtf32(0x6E) + Char.ConvertFromUtf32(0x73) + Char.ConvertFromUtf32(0x65) + Char.ConvertFromUtf32(0x63) + Char.ConvertFromUtf32(0x61);
                 Microsoft.Web.WebView2.Wpf.WebView2 webview = new Microsoft.Web.WebView2.Wpf.WebView2();
                 

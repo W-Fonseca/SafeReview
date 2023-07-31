@@ -2,6 +2,7 @@
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using SafeReview;
+using SafeReview.Objetos_Blue_Prism;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -103,6 +104,28 @@ namespace Code_Inspector
                     .GroupBy(row => row.Field<string>("Tipo_Erro"))
                     .Select(group => new { Tipo = group.Key, Quantidade = group.Count() });
 
+            List<string> tiposErroList = new List<string> { };
+            if (Page_Inspecionar.RangeA1 == "Error / Alert / Notification")
+            {
+                tiposErroList.Add("Notification");
+                tiposErroList.Add("Error");
+                tiposErroList.Add("Alert");
+            }
+            else if (Page_Inspecionar.RangeA1 == "Erro / Alerta / Notificação")
+            {
+                tiposErroList.Add("Notificação");
+                tiposErroList.Add("Erro");
+                tiposErroList.Add("Alerta");
+            }
+
+            else if (Page_Inspecionar.RangeA1 == "Error / Alerta / Notificación")
+            {
+                tiposErroList.Add("Notificación");
+                tiposErroList.Add("Error");
+                tiposErroList.Add("Alerta");
+            }
+
+
             if (TabelaProcesso.Rows.Count > 0 && TabelaObjeto.Rows.Count > 0)
             {
 
@@ -110,21 +133,20 @@ namespace Code_Inspector
 {
                 new ColumnSeries
                 {
-                    Title = "Objeto",
+                    Title = FindResource("criar_cabecalho_Objetos_title").ToString(),
                     Fill = new SolidColorBrush(Color.FromRgb(90, 203, 227)),
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == "Notification")?.Quantidade ?? 0), new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == "Error")?.Quantidade ?? 0), new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == "Alert")?.Quantidade ?? 0) }
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == tiposErroList[0].ToString())?.Quantidade ?? 0), new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == tiposErroList[1].ToString())?.Quantidade ?? 0), new ObservableValue(grupoObjeto.FirstOrDefault(item => item.Tipo == tiposErroList[2].ToString())?.Quantidade ?? 0) }
                 }
                 };
 
-
                 SeriesCollection_BasicColumn.Add(new ColumnSeries
                 {
-                    Title = "Processo",
+                    Title = FindResource("criar_cabecalho_Processo_title").ToString(),
                     Fill = new SolidColorBrush(Color.FromRgb(106, 195, 153)), // Azul padrão
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == "Notification")?.Quantidade ?? 0), new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == "Error")?.Quantidade ?? 0), new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == "Alert")?.Quantidade ?? 0) }
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == tiposErroList[0].ToString())?.Quantidade ?? 0), new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == tiposErroList[1].ToString())?.Quantidade ?? 0), new ObservableValue(grupoProcesso.FirstOrDefault(item => item.Tipo == tiposErroList[2].ToString())?.Quantidade ?? 0) }
                 });
 
-                BasicColumnLabels = new[] { "Notification", "Error","Alert"};
+                BasicColumnLabels = new[] { FindResource("conferencia_paginas_comuns_Notificacao").ToString(), FindResource("conferencia_paginas_comuns_Erro").ToString(), FindResource("conferencia_paginas_comuns_Alerta").ToString() };
                 DataContext = this;
             }
         }

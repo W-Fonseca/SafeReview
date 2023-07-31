@@ -48,7 +48,7 @@
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Quantidade"></lvc:Axis>
+                <lvc:Axis Title="{DynamicResource Page_Grafico_text3}"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
     </Grid>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\GitHub\SafeReview-main\SafeReview\App.xaml
-13935827353
+14-1627173002
 31239705755
-161569022598
+171598538588
 2041566190549
-Dictionary_English.xaml;Dictionary_Portuguese_br.xaml;Dictionary_Spanish.xaml;MainWindow.xaml;Objetos_Blue_Prism\Dictionary_BP.xaml;Page_Config.xaml;Page_Documentacao.xaml;Page_FeedBack.xaml;Page_Grafico.xaml;Page_Grafico_Detail.xaml;Page_Informacoes.xaml;Page_Inspecionar.xaml;Page_ODI.xaml;
+Dictionary_English.xaml;Dictionary_Portuguese_br.xaml;Dictionary_Spanish.xaml;MainWindow.xaml;Objetos_Blue_Prism\Dictionary_BP.xaml;Page_Config.xaml;Page_Documentacao.xaml;Page_FeedBack.xaml;Page_Grafico.xaml;Page_Grafico_Detail.xaml;Page_Grafico_Null.xaml;Page_Informacoes.xaml;Page_Inspecionar.xaml;Page_ODI.xaml;
 
 False
 

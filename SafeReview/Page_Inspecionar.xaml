@@ -18,9 +18,8 @@
             <Label Content="{DynamicResource inspecionar_lbl_Local_do_arquivo}" HorizontalAlignment="Left" Margin="52,76,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Button Content="{DynamicResource inspecionar_btn_Selecionar}" HorizontalAlignment="Left" Margin="419,102,0,0" VerticalAlignment="Top" Width="65" Height="21" Click="Selecionar_Arquivo"/>
             <ComboBox x:Name="SelecaoTipoRelease" HorizontalAlignment="Left" Margin="58,166,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="Item_selecionado">
-                <ComboBoxItem >Automation Anywhere</ComboBoxItem>
                 <ComboBoxItem >Blue Prism</ComboBoxItem>
-                <ComboBoxItem >UI Path</ComboBoxItem>
+
             </ComboBox>
             <Label Content="{DynamicResource inspecionar_lbl_tipo_do_arquivo}" HorizontalAlignment="Left" Margin="52,137,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="{DynamicResource inspecionar_lbl_estado}" HorizontalAlignment="Left" Margin="21,150,0,0" VerticalAlignment="Center" Foreground="White"/>
