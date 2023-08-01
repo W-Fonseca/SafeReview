@@ -1,3 +1,35 @@
-2023/07/31-18:18:56.831 3cac Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/07/31-18:18:56.834 3cac Recovering log #159
-2023/07/31-18:18:56.841 3cac Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000159.log 
+2023/08/01-14:01:55.053 1da8 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/08/01-14:01:55.056 1da8 Recovering log #170
+2023/08/01-14:01:55.059 1da8 Level-0 table #173: started
+2023/08/01-14:01:55.073 1da8 Level-0 table #173: 24548 bytes OK
+2023/08/01-14:01:55.094 1da8 Delete type=0 #170
+2023/08/01-14:01:55.095 2164 Compacting 4@0 + 1@1 files
+2023/08/01-14:01:55.115 2164 Generated table #175@0: 138 keys, 48553 bytes
+2023/08/01-14:01:55.115 2164 Compacted 4@0 + 1@1 files => 48553 bytes
+2023/08/01-14:01:55.116 2164 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/08/01-14:01:55.119 2164 Delete type=2 #164
+2023/08/01-14:01:55.119 2164 Delete type=2 #166
+2023/08/01-14:01:55.119 2164 Delete type=2 #168
+2023/08/01-14:01:55.120 2164 Delete type=2 #171
+2023/08/01-14:01:55.120 2164 Delete type=2 #173
+2023/08/01-14:07:58.829 2164 Level-0 table #177: started
+2023/08/01-14:07:58.837 2164 Level-0 table #177: 24435 bytes OK
+2023/08/01-14:07:58.839 2164 Delete type=0 #174
+2023/08/01-14:08:33.564 2164 Level-0 table #179: started
+2023/08/01-14:08:33.573 2164 Level-0 table #179: 24451 bytes OK
+2023/08/01-14:08:33.576 2164 Delete type=0 #176
+2023/08/01-14:11:24.104 2164 Level-0 table #181: started
+2023/08/01-14:11:24.112 2164 Level-0 table #181: 25936 bytes OK
+2023/08/01-14:11:24.114 2164 Delete type=0 #178
+2023/08/01-14:13:19.016 2164 Level-0 table #183: started
+2023/08/01-14:13:19.024 2164 Level-0 table #183: 37788 bytes OK
+2023/08/01-14:13:19.026 2164 Delete type=0 #180
+2023/08/01-14:13:19.027 1da8 Compacting 4@0 + 1@1 files
+2023/08/01-14:13:19.037 1da8 Generated table #184@0: 142 keys, 48812 bytes
+2023/08/01-14:13:19.037 1da8 Compacted 4@0 + 1@1 files => 48812 bytes
+2023/08/01-14:13:19.038 1da8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/08/01-14:13:19.039 1da8 Delete type=2 #175
+2023/08/01-14:13:19.039 1da8 Delete type=2 #177
+2023/08/01-14:13:19.039 1da8 Delete type=2 #179
+2023/08/01-14:13:19.039 1da8 Delete type=2 #181
+2023/08/01-14:13:19.039 1da8 Delete type=2 #183

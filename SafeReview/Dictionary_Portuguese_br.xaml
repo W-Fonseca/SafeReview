@@ -127,7 +127,7 @@
     <system:String x:Key="criar_cabecalho_Objetos_b1">Nome do Objeto</system:String>
     <system:String x:Key="criar_cabecalho_Objetos_c1">Elemento / Ação</system:String>
     <system:String x:Key="criar_cabecalho_Objetos_d1">Descrição</system:String>
-    <system:String x:Key="criar_cabecalho_Processo_title">Projetos</system:String>
+    <system:String x:Key="criar_cabecalho_Processo_title">Processo</system:String>
     <system:String x:Key="criar_cabecalho_Processo_b1">Nome do Processo</system:String>
     <system:String x:Key="criar_cabecalho_Processo_c1">Nome da Página</system:String>
     <system:String x:Key="criar_cabecalho_Processo_Topicos">Tópicos</system:String>

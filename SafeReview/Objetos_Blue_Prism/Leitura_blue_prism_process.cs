@@ -56,11 +56,10 @@ namespace SafeReview.Objetos_Blue_Prism
             Leitura_blue_prism_process programa = new Leitura_blue_prism_process();
 
             programa.conferencia_paginas_comuns(Local_Release, excel, newResourceDictionary);
-            programa.Tamanho_blocos(Local_Release, excel, newResourceDictionary);
+           // programa.Tamanho_blocos(Local_Release, excel, newResourceDictionary);
             programa.NomeProcessPadrao(Local_Release, excel, newResourceDictionary);
-           // programa.OrderPages(Local_Release, excel, newResourceDictionary);
+            programa.OrderPages(Local_Release, excel, newResourceDictionary);
            // programa.Color_Block_MainPage(Local_Release, excel, newResourceDictionary);
-           
             programa.Contais_Kill_or_Close(Local_Release, excel, newResourceDictionary);
             programa.Check_Stop_Mainpage(Local_Release, excel, newResourceDictionary);
             programa.CheckPasswords(Local_Release, excel, newResourceDictionary);

@@ -47,3 +47,9 @@ C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\refint\SafeRevie
 C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\SafeReview.pdb
 C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\SafeReview.genruntimeconfig.cache
 C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\ref\SafeReview.dll
+C:\GitHub\SafeReview-main\SafeReview\bin\Release\net7.0-windows\LiveCharts.dll
+C:\GitHub\SafeReview-main\SafeReview\bin\Release\net7.0-windows\LiveCharts.Wpf.dll
+C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\Page_Grafico_Detail.g.cs
+C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\Page_Grafico_Null.g.cs
+C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\Page_Grafico_Detail.baml
+C:\GitHub\SafeReview-main\SafeReview\obj\Release\net7.0-windows\Page_Grafico_Null.baml
