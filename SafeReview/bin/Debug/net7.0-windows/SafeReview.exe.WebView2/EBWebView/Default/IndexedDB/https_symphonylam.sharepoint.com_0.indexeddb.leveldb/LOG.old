@@ -1,3 +1,12 @@
-2023/07/11-17:32:56.673 ac8 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\IndexedDB\https_symphonylam.sharepoint.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/07/11-17:32:56.674 ac8 Recovering log #7
-2023/07/11-17:32:56.676 ac8 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\IndexedDB\https_symphonylam.sharepoint.com_0.indexeddb.leveldb/000007.log 
+2023/08/03-10:52:01.041 5c24 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\IndexedDB\https_symphonylam.sharepoint.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/08/03-10:52:01.043 5c24 Recovering log #20
+2023/08/03-10:52:01.077 5c24 Reusing old log C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\IndexedDB\https_symphonylam.sharepoint.com_0.indexeddb.leveldb/000020.log 
+2023/08/03-10:52:51.554 5c2c Level-0 table #25: started
+2023/08/03-10:52:51.619 5c2c Level-0 table #25: 1470725 bytes OK
+2023/08/03-10:52:51.622 5c2c Delete type=0 #20
+2023/08/03-10:52:51.658 5c30 Compacting 1@1 + 1@2 files
+2023/08/03-10:52:51.735 5c30 Generated table #26@1: 4859 keys, 782584 bytes
+2023/08/03-10:52:51.735 5c30 Compacted 1@1 + 1@2 files => 782584 bytes
+2023/08/03-10:52:51.736 5c30 compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/08/03-10:52:51.737 5c30 Delete type=2 #22
+2023/08/03-10:52:51.737 5c30 Delete type=2 #25

@@ -7,8 +7,32 @@
       mc:Ignorable="d" 
       Title="Page_Informacoes">
 
-    <TextBlock x:Name="informacoes_projeto" Text="{DynamicResource Informacoes_txtB_informacoes}" xml:space="preserve" Foreground="White" FontSize="14" TextWrapping="WrapWithOverflow" MouseLeftButtonDown="AjusteImagem">
+    <TextBlock x:Name="informacoes_projeto" Foreground="White" FontSize="14" TextWrapping="WrapWithOverflow" MouseLeftButtonDown="AjusteImagem">
 
-            <Label Content="Create by: Github/W-Fonseca" Grid.Column="1" Grid.ColumnSpan="2" Foreground="White" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.6"/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes1}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes2}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes3}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes4}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes5}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes6}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes7}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+    <Run Text="{DynamicResource Informacoes_txtB_informacoes8}" Foreground="White"/>
+        <LineBreak/>
+        <LineBreak/>
+            <Label Content="Create by: Github/W-Fonseca" Foreground="White"  HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.6"/>
     </TextBlock>
 </Page>

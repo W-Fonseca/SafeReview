@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SafeReview"
+    "\\SafeReview",
+    "\\SafeReview\\Objetos_Blue_Prism"
   ],
-  "SelectedNode": "\\SafeReview\\MainWindow.xaml",
+  "SelectedNode": "\\SafeReview\\Objetos_Blue_Prism\\Leitura_blue_prism_process.cs",
   "PreviewInSolutionExplorer": false
 }
