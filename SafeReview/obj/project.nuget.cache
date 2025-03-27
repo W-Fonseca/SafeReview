@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "7QnLda5gn30YytoPNeID4OWepkJF7PVtzrmdPP9ueVa7YrKH9x5dbzs1Xd+ttkRNQ76/mq4ohlt6M/jRtohcjg==",
+  "dgSpecHash": "IqFzI5Bcj7Y=",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\SafeReview-main\\SafeReview\\SafeReview.csproj",
+  "projectFilePath": "C:\\GitHub\\SafeReview\\SafeReview\\SafeReview.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Wellington\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
-    "C:\\Users\\Wellington\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
-    "C:\\Users\\Wellington\\.nuget\\packages\\microsoft.web.webview2\\1.0.1901.177\\microsoft.web.webview2.1.0.1901.177.nupkg.sha512"
+    "C:\\Users\\DEV\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\microsoft.web.webview2\\1.0.1901.177\\microsoft.web.webview2.1.0.1901.177.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\DEV\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": [
     {

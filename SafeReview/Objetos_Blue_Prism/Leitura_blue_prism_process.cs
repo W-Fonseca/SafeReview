@@ -644,7 +644,14 @@ namespace SafeReview.Objetos_Blue_Prism
             }
             int primeiroUnderscore = name.IndexOf('_');
             int segundoUnderscore = name.IndexOf('_', primeiroUnderscore + 1);
-            string novonome = name.Substring(segundoUnderscore);
+            string novonome;
+            try { 
+            novonome = name.Substring(segundoUnderscore);
+            }
+            catch
+            {
+                novonome = name;
+            }
             regex = new Regex("_(\\w+)");
             match = regex.Match(novonome);
             if (match.Success == false)
