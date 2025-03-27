@@ -36,12 +36,10 @@
     <None Remove="icons8-gravidade-100.png" />
     <None Remove="icons8-idea-100.png" />
     <None Remove="icons8-info-100.png" />
-    <None Remove="icons8-information-100.png" />
     <None Remove="icons8-inseto-100.png" />
     <None Remove="icons8-macbook-chat-100.png" />
     <None Remove="icons8-macbook-idea-100.png" />
     <None Remove="icons8-vamos-para-100.png" />
-    <None Remove="Logo.png" />
     <None Remove="SafeReview_96_pixel.png" />
   </ItemGroup>
 
@@ -58,7 +56,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1587.40" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1901.177" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,7 +77,6 @@
     <Resource Include="icons8-genealogy-100.png" />
     <Resource Include="icons8-idea-100.png" />
     <Resource Include="icons8-info-100.png" />
-    <Resource Include="icons8-information-100.png" />
   </ItemGroup>
 
 </Project>

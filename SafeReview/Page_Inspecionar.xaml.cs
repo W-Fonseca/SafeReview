@@ -30,6 +30,7 @@ namespace Code_Inspector
 
         string arquivo_raiz;
         public object excel2;
+        public static string RangeA1;
 
         public Page_Inspecionar()
         {
@@ -122,6 +123,7 @@ namespace Code_Inspector
                 StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel6");
                 rectangle_status.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF06B025"));
 
+
             }
 
             catch
@@ -133,6 +135,7 @@ namespace Code_Inspector
             excel.Excel_Visible();
             progressBar.Opacity = 0;
             Iniciar.IsEnabled = true;
+            RangeA1 = excel.Read_Range(FindResource("criar_cabecalho_Processo_title").ToString(),"A1").ToString();
         }
 
         private void iniciar_Leitor_Release(vExcelv.Criar_Workbooks excel)

@@ -1,0 +1,13 @@
+C:\Users\Wellington\Documents\Cognishield\SafeReview.exe
+C:\Users\Wellington\Documents\Cognishield\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\Cognishield\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\Cognishield\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\Cognishield\SafeReview.dll
+C:\Users\Wellington\Documents\Cognishield\SafeReview.deps.json
+C:\Users\Wellington\Documents\Cognishield\SafeReview.runtimeconfig.json
+C:\Users\Wellington\Documents\Cognishield\SafeReview.pdb
+C:\Users\Wellington\Documents\Cognishield\LiveCharts.dll
+C:\Users\Wellington\Documents\Cognishield\LiveCharts.Wpf.dll
+C:\Users\Wellington\Documents\Cognishield\Microsoft.Web.WebView2.Core.dll
+C:\Users\Wellington\Documents\Cognishield\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\Wellington\Documents\Cognishield\Microsoft.Web.WebView2.Wpf.dll

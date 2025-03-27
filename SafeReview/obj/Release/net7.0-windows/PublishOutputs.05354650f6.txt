@@ -1,0 +1,11 @@
+C:\Users\Wellington\Documents\SafeReview_Finish\SafeReview.exe
+C:\Users\Wellington\Documents\SafeReview_Finish\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\SafeReview.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\SafeReview.deps.json
+C:\Users\Wellington\Documents\SafeReview_Finish\SafeReview.runtimeconfig.json
+C:\Users\Wellington\Documents\SafeReview_Finish\SafeReview.pdb
+C:\Users\Wellington\Documents\SafeReview_Finish\Microsoft.Web.WebView2.Core.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\Wellington\Documents\SafeReview_Finish\Microsoft.Web.WebView2.Wpf.dll

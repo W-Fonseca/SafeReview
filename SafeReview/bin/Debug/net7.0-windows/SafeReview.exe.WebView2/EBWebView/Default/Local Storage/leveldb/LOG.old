@@ -1,19 +1,8 @@
-2023/07/11-17:32:55.431 55e0 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/07/11-17:32:55.434 55e0 Recovering log #99
-2023/07/11-17:32:55.435 55e0 Level-0 table #102: started
-2023/07/11-17:32:55.445 55e0 Level-0 table #102: 24776 bytes OK
-2023/07/11-17:32:55.446 55e0 Recovering log #102
-2023/07/11-17:32:55.447 55e0 Level-0 table #103: started
-2023/07/11-17:32:55.454 55e0 Level-0 table #103: 24624 bytes OK
-2023/07/11-17:32:55.461 55e0 Delete type=0 #99
-2023/07/11-17:32:55.461 55e0 Delete type=0 #102
-2023/07/11-17:32:55.464 17d4 Compacting 5@0 + 1@1 files
-2023/07/11-17:32:55.480 17d4 Generated table #105@0: 97 keys, 47289 bytes
-2023/07/11-17:32:55.481 17d4 Compacted 5@0 + 1@1 files => 47289 bytes
-2023/07/11-17:32:55.482 17d4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2023/07/11-17:32:55.484 17d4 Delete type=2 #92
-2023/07/11-17:32:55.484 17d4 Delete type=2 #94
-2023/07/11-17:32:55.484 17d4 Delete type=2 #97
-2023/07/11-17:32:55.485 17d4 Delete type=2 #100
-2023/07/11-17:32:55.485 17d4 Delete type=2 #102
-2023/07/11-17:32:55.485 17d4 Delete type=2 #103
+2023/08/03-10:52:00.710 5d30 Reusing MANIFEST C:\GitHub\SafeReview-main\SafeReview\bin\Debug\net7.0-windows\SafeReview.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2023/08/03-10:52:00.713 5d30 Recovering log #182
+2023/08/03-10:52:00.714 5d30 Level-0 table #186: started
+2023/08/03-10:52:00.726 5d30 Level-0 table #186: 24534 bytes OK
+2023/08/03-10:52:00.736 5d30 Delete type=0 #182
+2023/08/03-10:54:02.074 5d40 Level-0 table #189: started
+2023/08/03-10:54:02.085 5d40 Level-0 table #189: 50703 bytes OK
+2023/08/03-10:54:02.089 5d40 Delete type=0 #187

@@ -1,4 +1,5 @@
 ﻿using Code_Inspector;
+using SafeReview.Objetos_Blue_Prism;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -220,7 +221,9 @@ namespace SafeReview
 
         private void CLB_Grafico(object sender, MouseButtonEventArgs e)
         {
-            if (Main.Content is Page_Grafico)
+            if (Page_Grafico.TabelaProcesso.Rows.Count > 0 || Page_Grafico.TabelaObjeto.Rows.Count > 0)
+            { 
+                if (Main.Content is Page_Grafico)
             {
                 return;
             }
@@ -229,6 +232,19 @@ namespace SafeReview
                 Main.NavigationService.RemoveBackEntry();
             }
             Main.Content = new Page_Grafico();
+            }
+            else
+            {
+                if (Main.Content is Page_Grafico_Null)
+                {
+                    return;
+                }
+                else
+                {
+                    Main.NavigationService.RemoveBackEntry();
+                }
+                Main.Content = new Page_Grafico_Null();
+            }
         }
 
         private void CLB_Inspecionar(object sender, MouseButtonEventArgs e)
@@ -254,6 +270,24 @@ namespace SafeReview
                 Main.NavigationService.RemoveBackEntry();
             }
             Main.Content = new Page_Config();
+        }
+
+        public void CLB_Grafico_Detail()
+        {
+            if (Main.Content is Page_Grafico_Detail)
+            {
+                return;
+            }
+            else
+            {
+                Main.NavigationService.RemoveBackEntry();
+            }
+            Main.Content = new Page_Grafico_Detail();
+        }
+
+        public static void Chamar_CLB_Grafico_Detail(MainWindow mainWindow)
+        {
+            mainWindow.CLB_Grafico_Detail();
         }
     }
 }
