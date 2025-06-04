@@ -79,4 +79,10 @@
     <Resource Include="icons8-info-100.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

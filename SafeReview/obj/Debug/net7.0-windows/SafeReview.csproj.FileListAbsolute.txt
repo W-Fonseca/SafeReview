@@ -152,3 +152,4 @@ C:\GitHub\SafeReview\SafeReview\obj\Debug\net7.0-windows\SafeReview.sourcelink.j
 C:\GitHub\SafeReview\SafeReview\obj\Debug\net7.0-windows\SafeReview.csproj.Up2Date
 C:\GitHub\SafeReview\SafeReview\obj\Debug\net7.0-windows\SafeReview.genruntimeconfig.cache
 C:\GitHub\SafeReview\SafeReview\obj\Debug\net7.0-windows\ref\SafeReview.dll
+C:\GitHub\SafeReview\SafeReview\bin\Debug\net7.0-windows\Logo.png

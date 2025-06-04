@@ -66,6 +66,7 @@
     <system:String x:Key="NomeProcessPadrao_Case2">"Nome do Processo não especifica a UC (use case) Ex: P189_UC_NomeDoProcesso (deve conter 3 digitos)."</system:String>
     <system:String x:Key="NomeProcessPadrao_Case3">"Não foi encontrado o nome do processo exemplo P189_UC_NomeDoProcesso."</system:String>
     <system:String x:Key="OrderPages_initialfrase">Ordem das Páginas com Ordem de execução diferente, Ordem corretá [</system:String>
+    <system:String x:Key="OrderPages_initialfrase_error">Error ao tentar identificar Ordem das Páginas com Ordem de execução</system:String>
     <system:String x:Key="OrderPages_finalyfrase">] depois vir as demais páginas.</system:String>
     <system:String x:Key="Color_Block_MainPage_case1">Cor do bloco</system:String>
     <system:String x:Key="Color_Block_MainPage_case2">deve ser </system:String>
@@ -95,6 +96,7 @@
     <system:String x:Key="Check_Global_Itens_case1_finalyfrase">em vez da Main Page</system:String>
     <system:String x:Key="Recovery_In_MainPage_case1">Main Page não contem</system:String>
     <system:String x:Key="Recovery_In_MainPage_case2">Main Page só contem 1 Recover (necessário avaliação se o processo fecha tudo em caso de TERMINATE.)</system:String>
+    
     <!-- leitura_blue_prism_object.cs-->
     <system:String x:Key="leitura_blue_prism_object_acao">Ação: </system:String>
     <system:String x:Key="Check_element_and_Attributes_case1">tipo de elemento com descrição errada ou sem hífens com espaçamento entre ele</system:String>
@@ -122,6 +124,7 @@
     <system:String x:Key="CheckAllHardCodeProcess_finalyfrase">Contem HardCode com a expressão:</system:String>
     <system:String x:Key="Check_SendkeysAndMouseClick_initialfrase">Stagio [</system:String>
     <system:String x:Key="Check_SendkeysAndMouseClick_finalyfrase">] sem Activate Application ou Focus</system:String>
+    <system:String x:Key="error_SubsheetIDAttach">ID de ação vindo de outro objeto</system:String>
     <!-- vExcelv.cs-->
     <system:String x:Key="criar_cabecalho_Objetos_title">Objetos</system:String>
     <system:String x:Key="criar_cabecalho_Objetos_b1">Nome do Objeto</system:String>
@@ -149,7 +152,65 @@
     <system:String x:Key="Page_Grafico_text1">Total por Tipo</system:String>
     <system:String x:Key="Page_Grafico_text2">Total por Tópicos em</system:String>
     <system:String x:Key="Page_Grafico_text3">Quantidade</system:String>
-    
 
+    <!-- log processo -->
+    <system:String x:Key="msg_iniciando_leitura_release">Iniciando leitura do release...</system:String>
+        <system:String x:Key="msg_idioma_selecionado">Idioma selecionado: {0}</system:String>
+        <system:String x:Key="msg_processo_encontrado">Processo encontrado. Executando verificações...</system:String>
+        <system:String x:Key="msg_processo_nao_encontrado">Nenhum processo encontrado.</system:String>
+        <system:String x:Key="msg_lendo_objetos">Lendo objetos...</system:String>
+        <system:String x:Key="msg_finalizando_excel">Finalizando e salvando Excel...</system:String>
+        <system:String x:Key="msg_leitura_concluida">Leitura do release concluída.</system:String>
+
+    <system:String x:Key="msg_conferencia_paginas_comuns">Conferindo páginas comuns...</system:String>
+    <system:String x:Key="msg_tamanho_blocos">Verificando tamanho dos blocos...</system:String>
+    <system:String x:Key="msg_nome_process_padrao">Verificando nome padrão do processo...</system:String>
+    <system:String x:Key="msg_color_block_mainpage">Verificando cores na página principal...</system:String>
+    <system:String x:Key="msg_contais_kill_close">Procurando por 'Kill' ou 'Close'...</system:String>
+    <system:String x:Key="msg_check_stop_mainpage">Verificando presença de 'Stop' na MainPage...</system:String>
+    <system:String x:Key="msg_check_passwords">Procurando senhas expostas...</system:String>
+    <system:String x:Key="msg_pre_post_conditions">Verificando pré e pós-condições...</system:String>
+    <system:String x:Key="msg_cont_stage_in_page">Contando stages por página...</system:String>
+    <system:String x:Key="msg_email_end_process">Procurando e-mails no fim do processo...</system:String>
+    <system:String x:Key="msg_check_dataitem">Verificando Data Items...</system:String>
+    <system:String x:Key="msg_check_exceptions">Verificando blocos de exceção...</system:String>
+    <system:String x:Key="msg_check_workqueue">Verificando nomes de Work Queues...</system:String>
+    <system:String x:Key="msg_check_hardcoded">Procurando valores hardcoded no processo...</system:String>
+    <system:String x:Key="msg_check_global_itens">Verificando itens globais...</system:String>
+    <system:String x:Key="msg_recovery_mainpage">Verificando blocos de recovery na MainPage...</system:String>
+    <system:String x:Key="msg_padrao_leitura">Executando leitura padrão...</system:String>
+    <!-- log processo -->
+    <!-- log objeto -->
+    <system:String x:Key="msg_criando_aba_objetos">Criando aba de objetos...</system:String>
+    <system:String x:Key="msg_check_element_type">Verificando tipos de elementos...</system:String>
+    <system:String x:Key="msg_check_element_attributes">Verificando atributos dos elementos...</system:String>
+    <system:String x:Key="msg_check_publish">Verificando se os objetos estão publicados...</system:String>
+    <system:String x:Key="msg_count_pages">Contando número de páginas...</system:String>
+    <system:String x:Key="msg_check_wait_time">Verificando tempos de espera...</system:String>
+    <system:String x:Key="msg_check_all_exceptions">Verificando todos os blocos de exceção...</system:String>
+    <system:String x:Key="msg_pre_post_conditions_objeto">Verificando pré e pós-condições...</system:String>
+    <system:String x:Key="msg_check_narrative">Verificando narrativa dos objetos...</system:String>
+    <system:String x:Key="msg_count_stages">Contando estágios por página...</system:String>
+    <system:String x:Key="msg_check_stage_in_page">Verificando se há estágios por página...</system:String>
+    <system:String x:Key="msg_tamanho_blocos_objetos">Verificando o tamanho dos blocos...</system:String>
+    <system:String x:Key="msg_color_block_objetos">Verificando cores dos blocos...</system:String>
+    <system:String x:Key="msg_identif_subsheets">Identificando subplanilhas e ações...</system:String>
+    <system:String x:Key="msg_search_attach">Procurando ações Attach...</system:String>
+    <system:String x:Key="msg_check_exceptions_objeto">Verificando exceções nos objetos...</system:String>
+    <system:String x:Key="msg_check_environment">Verificando variáveis de ambiente...</system:String>
+    <system:String x:Key="msg_check_hardcode_objeto">Verificando valores hardcoded nos objetos...</system:String>
+    <system:String x:Key="msg_check_sendkeys_mouseclick">Procurando ações SendKeys e MouseClick...</system:String>
+    <!-- log objeto -->
+    <!-- log execução -->
+    <system:String x:Key="msg_inicio_conferencia">Início da conferência...</system:String>
+    <system:String x:Key="msg_criando_workbook">Criando workbook...</system:String>
+    <system:String x:Key="msg_criando_worksheet">Criando worksheet...</system:String>
+    <system:String x:Key="msg_nome_worksheet">Nome da worksheet: {0}</system:String>
+    <system:String x:Key="msg_criando_cabecalho">Criando cabeçalho...</system:String>
+    <system:String x:Key="msg_iniciando_leitura">Iniciando leitura...</system:String>
+    <system:String x:Key="msg_inspecao_sucesso">Inspeção concluída com sucesso.</system:String>
+    <system:String x:Key="msg_exibindo_excel">Exibindo Excel...</system:String>
+    <system:String x:Key="msg_processo_finalizado">Processo finalizado.</system:String>
+    <!-- log execução -->
     <!-- ???? -->
 </ResourceDictionary>

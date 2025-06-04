@@ -31,6 +31,7 @@ namespace Code_Inspector
         string arquivo_raiz;
         public object excel2;
         public static string RangeA1;
+        public static ResourceDictionary DictionaryAtual;
 
         public Page_Inspecionar()
         {
@@ -105,42 +106,106 @@ namespace Code_Inspector
 
         private async void Iniciar_Conferencia(object sender, RoutedEventArgs e)
         {
+            ResourceDictionary newResourceDictionary = new ResourceDictionary();
+            newResourceDictionary.MergedDictionaries.Clear();
+
+            switch (MainWindow.language)
+            {
+                case "English":
+                    newResourceDictionary.Source = new Uri("..\\..\\Dictionary_English.xaml", UriKind.Relative);
+                    break;
+                case "Spanish":
+                    newResourceDictionary.Source = new Uri("..\\..\\Dictionary_Spanish.xaml", UriKind.Relative);
+                    break;
+                case "Portuguese (Brasil)":
+                    newResourceDictionary.Source = new Uri("..\\..\\Dictionary_Portuguese_br.xaml", UriKind.Relative);
+                    break;
+                default:
+                    newResourceDictionary.Source = new Uri("..\\..\\Dictionary_English.xaml", UriKind.Relative);
+                    break;
+            }
+
+            newResourceDictionary.MergedDictionaries.Add(newResourceDictionary);
+            DictionaryAtual = newResourceDictionary;
+
+            Log.Clear();
+
+            Action<string> logAction = mensagem =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    string texto = $"{DateTime.Now:HH:mm:ss} - {mensagem}";
+                    Log.AppendText(texto + Environment.NewLine);
+                    Log.ScrollToEnd();
+                });
+            };
+
+            // Log inicial
+            logAction(DictionaryAtual["msg_inicio_conferencia"].ToString());
+
+            Log.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF091E35"));
+            Log.BorderThickness = new Thickness(1);
+            Log.BorderBrush = Brushes.White;
 
             rectangle_status.Fill = null;
             progressBar.Opacity = 1;
             Iniciar.IsEnabled = false;
-            //StatusLabel.Content = "Inspecionando...";
             StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel5");
+
             vExcelv.Criar_Workbooks excel = new vExcelv.Criar_Workbooks();
+
+            // Criando workbook
+            logAction(DictionaryAtual["msg_criando_workbook"].ToString());
             excel.Criar_Workbook();
-            //excel.Criar_Woksheet("Conferencia_Processo");
-            excel.Criar_Woksheet(FindResource("criar_cabecalho_Processo_title").ToString());
+
+            string sheetName = FindResource("criar_cabecalho_Processo_title").ToString();
+
+            // Criando worksheet (usando msg_criando_worksheet e msg_nome_worksheet)
+            logAction(DictionaryAtual["msg_criando_worksheet"].ToString());
+            logAction(string.Format(DictionaryAtual["msg_nome_worksheet"].ToString(), sheetName));
+            excel.Criar_Woksheet(sheetName);
+
+            // Criando cabeçalho
+            logAction(DictionaryAtual["msg_criando_cabecalho"].ToString());
             excel.criar_cabecalho_Processo();
+
             try
             {
-                await Task.Run(()=>iniciar_Leitor_Release(excel));
-                //StatusLabel.Content = "Inspeção Concluida";
+                logAction(DictionaryAtual["msg_iniciando_leitura"].ToString());
+
+                await Task.Run(() => iniciar_Leitor_Release(excel, logAction));
+
                 StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel6");
                 rectangle_status.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF06B025"));
 
-
+                logAction(DictionaryAtual["msg_inspecao_sucesso"].ToString());
             }
-
-            catch
+            catch (Exception ex)
             {
-                //StatusLabel.Content = "Erro na Inspeção, arquivo com erro ou corrompido";
                 StatusLabel.Content = FindResource("inspecionar_Csharp_StatusLabel7");
                 rectangle_status.Fill = new SolidColorBrush(Colors.Red);
+
+                logAction($"Erro durante a inspeção: {ex.Message}");
             }
+
+            logAction(DictionaryAtual["msg_exibindo_excel"].ToString());
             excel.Excel_Visible();
+
             progressBar.Opacity = 0;
             Iniciar.IsEnabled = true;
-            RangeA1 = excel.Read_Range(FindResource("criar_cabecalho_Processo_title").ToString(),"A1").ToString();
+
+            string RangeA1 = excel.Read_Range(sheetName, "A1").ToString();
+
+            // Aqui não tem chave no dicionário, vai direto:
+            logAction($"Valor lido da célula A1: {RangeA1}");
+
+            logAction(DictionaryAtual["msg_processo_finalizado"].ToString());
         }
 
-        private void iniciar_Leitor_Release(vExcelv.Criar_Workbooks excel)
+        private void iniciar_Leitor_Release(vExcelv.Criar_Workbooks excel, Action<string> logAction)
         {
-            Leitura_blue_prism_process.Leitor_Release(arquivo_raiz,excel, MainWindow.language);
+            Leitura_blue_prism_process.Leitor_Release(arquivo_raiz, excel, MainWindow.language, logAction);
         }
+
     }
 }

@@ -21,34 +21,69 @@ namespace SafeReview.Objetos_Blue_Prism
     {
         int numero_linha_excel = 1;
 
-        public static void Leitura_objetos(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual) //encontra os elementos de cada objeto
+        public static void Leitura_objetos(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual, Action<string> logAction)
         {
-
             leitura_blue_prism_object programa_objeto = new leitura_blue_prism_object();
+
+            logAction(DictionaryAtual["msg_criando_aba_objetos"].ToString());
             excel.Criar_Woksheet(MainWindow.dictionary["criar_cabecalho_Objetos_title"].ToString());
             excel.criar_cabecalho_Objetos();
-            
-            programa_objeto.Check_element_and_Attributes(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_Publish(Local_Release, excel, DictionaryAtual);
-  
-            programa_objeto.Count_Page(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_wait_time(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_All_Exception(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Preconditions_PostConditions(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_Narrative(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Count_Stages_InPage(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_Contais_Stage_InPage(Local_Release, excel, DictionaryAtual);
-         //   programa_objeto.Tamanho_blocos(Local_Release, excel, DictionaryAtual);
-         //   programa_objeto.Color_Block(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Identif_Subsheets_And_Actions(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Search_Attach(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_Exceptions(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_Environment(Local_Release, excel, DictionaryAtual);
-            programa_objeto.CheckAllHardCodeProcess(Local_Release, excel, DictionaryAtual);
-            programa_objeto.Check_SendkeysAndMouseClick(Local_Release, excel, DictionaryAtual);
-    
 
+            logAction(DictionaryAtual["msg_check_element_type"].ToString());
+            programa_objeto.Check_element_type(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_element_attributes"].ToString());
+            programa_objeto.Check_element_and_Attributes(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_publish"].ToString());
+            programa_objeto.Check_Publish(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_count_pages"].ToString());
+            programa_objeto.Count_Page(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_wait_time"].ToString());
+            programa_objeto.Check_wait_time(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_all_exceptions"].ToString());
+            programa_objeto.Check_All_Exception(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_pre_post_conditions_objeto"].ToString());
+            programa_objeto.Preconditions_PostConditions(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_narrative"].ToString());
+            programa_objeto.Check_Narrative(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_count_stages"].ToString());
+            programa_objeto.Count_Stages_InPage(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_stage_in_page"].ToString());
+            programa_objeto.Check_Contais_Stage_InPage(Local_Release, excel, DictionaryAtual);
+
+            // logAction(DictionaryAtual["msg_tamanho_blocos_objetos"].ToString());
+            // programa_objeto.Tamanho_blocos(Local_Release, excel, DictionaryAtual);
+
+            // logAction(DictionaryAtual["msg_color_block_objetos"].ToString());
+            // programa_objeto.Color_Block(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_identif_subsheets"].ToString());
+            programa_objeto.Identif_Subsheets_And_Actions(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_search_attach"].ToString());
+            programa_objeto.Search_Attach(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_exceptions_objeto"].ToString());
+            programa_objeto.Check_Exceptions(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_environment"].ToString());
+            programa_objeto.Check_Environment(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_hardcode_objeto"].ToString());
+            programa_objeto.CheckAllHardCodeProcess(Local_Release, excel, DictionaryAtual);
+
+            logAction(DictionaryAtual["msg_check_sendkeys_mouseclick"].ToString());
+            programa_objeto.Check_SendkeysAndMouseClick(Local_Release, excel, DictionaryAtual);
         }
+
 
         public void Check_element_and_Attributes(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
         {
@@ -635,7 +670,20 @@ namespace SafeReview.Objetos_Blue_Prism
                 bool Pageattach = false;
                 if (SubsheetIDAttach != null)
                 {
+                    try
+                    {
                     CheckAttach = doc.SelectSingleNode(".//ns:object[@id='" + objectid + "']/ns:process/ns:stage[@type='Navigate']/ns:subsheetid['" + SubsheetIDAttach + "']", ns).SelectSingleNode("..").SelectSingleNode(".//ns:id['AttachApplication']", ns);
+                    }
+                    catch {
+
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Erro"].ToString());
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", DictionaryAtual["Arquitetura_1"].ToString());
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", objectname);
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", DictionaryAtual["error_SubsheetIDAttach"].ToString() + namepage);
+                        excel.Escreva_Worksheet(numero_linha_excel, "E", DictionaryAtual["Search_Attach_case2"].ToString());
+
+                    }
                 }
                 if (CheckAttach == null)
                 {
@@ -875,5 +923,45 @@ namespace SafeReview.Objetos_Blue_Prism
                 }
             }
         }
+
+        public void Check_element_type(string Local_Release, vExcelv.Criar_Workbooks excel, ResourceDictionary DictionaryAtual)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(Local_Release);
+            XmlNamespaceManager ns = new XmlNamespaceManager(doc.NameTable);
+            ns.AddNamespace("ns", "http://www.blueprism.co.uk/product/process");
+
+            // Selecionando todos os elementos <element> dentro de <process>, independentemente de onde estejam na hierarquia
+            XmlNodeList elements = doc.SelectNodes(".//ns:object/ns:process//ns:element", ns);
+
+            foreach (XmlNode element in elements) // Para cada elemento encontrado
+            {
+                // Buscando o nó <type> dentro do elemento
+                XmlNode typeNode = element.SelectSingleNode("ns:type", ns);
+                string elementType = typeNode?.InnerText ?? ""; // Pegando o valor do nó <type>
+
+                // Só processa se encontrou um <type>
+                if (typeNode != null)
+                {
+                    // Encontrando o nó pai "object" mais próximo
+                    XmlNode ParentStage = element;
+                    while (ParentStage != null && ParentStage.Name != "object")
+                    {
+                        ParentStage = ParentStage.ParentNode;
+                    }
+
+                    if (ParentStage != null)
+                    {
+                        numero_linha_excel += 1;
+                        excel.Escreva_Worksheet(numero_linha_excel, "A", DictionaryAtual["conferencia_paginas_comuns_Notificacao"].ToString());
+                        excel.Escreva_Worksheet(numero_linha_excel, "B", DictionaryAtual["Elemento_1"].ToString());
+                        excel.Escreva_Worksheet(numero_linha_excel, "C", ParentStage.Attributes["name"].Value); // Nome do "object"
+                        excel.Escreva_Worksheet(numero_linha_excel, "D", "Elemento: " + element.Attributes["name"]?.Value ?? "Sem nome"); // Nome do elemento
+                        excel.Escreva_Worksheet(numero_linha_excel, "E", "Tipo: " + elementType); // Tipo do elemento
+                    }
+                }
+            }
+        }
+
     }
 }

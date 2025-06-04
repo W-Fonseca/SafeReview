@@ -12,12 +12,13 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Wellington\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Wellington\\.nuget\\packages",
+      "C:\\Users\\DEV\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\DEV\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
+      "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }
